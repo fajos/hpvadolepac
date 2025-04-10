@@ -1,0 +1,66 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Admin.EditPreTest.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PreTestQuestions[0].PreTestQuestion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreTestQuestions[0].PreTestQuestionOption1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreTestQuestions[0].PreTestQuestionOption2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreTestQuestions[0].PreTestQuestionOption3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreTestQuestions[0].PreTestQuestionOption4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreTestQuestions[0].PreTestQuestionOption5)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PreTestQuestions) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreTestQuestion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreTestQuestionOption1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreTestQuestionOption2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreTestQuestionOption3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreTestQuestionOption4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreTestQuestionOption5)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PreTestQuestionID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PreTestQuestionID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PreTestQuestionID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

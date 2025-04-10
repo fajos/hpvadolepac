@@ -1,0 +1,84 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Admin.TestAnswer.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    var answerCount = Model.TestAnswers.Count();
+}
+
+<h1>Shown Records: @answerCount</h1>
+<form method="get">
+    <div class="row">
+        <div class="col-sm-auto fw-bold">
+            <label for="fromDate">From:</label>
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control" type="date" asp-for="fromDate" />
+        </div>
+
+
+
+        <div class="col-sm-auto fw-bold">
+            <label for="toDate">To: </label>
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control" type="date" asp-for="toDate" />
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-auto">
+            <label for="box" class="fw-bold"> Search: </label>
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" name="SearchString" id="box">
+        </div>
+        <div class="col-sm-1">
+            <input type="submit" value="Search" class="btn btn-primary">
+        </div>
+        <div class="col-sm-1">
+            <input type="submit" value="Show All Records" name="ShowAll" class="btn btn-primary">
+        </div>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TestAnswers[0].Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestAnswers[0].TestQuestions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestAnswers[0].AnswerStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestAnswers[0].DateAttempt)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TestAnswers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestQuestions.TestQuestion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AnswerStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAttempt)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

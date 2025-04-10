@@ -1,0 +1,552 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Student.mod5Model
+@{
+    ViewData["Title"] = "Module 5";
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5</title>
+
+    <style>
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #CE65BF;
+            padding: 20px;
+            border: none;
+            z-index: 9999;
+            border-radius: 6px;
+            animation: fadeIn 0.4s ease forwards;
+            max-height: 80vh; 
+            overflow: auto; 
+        }
+
+        @@keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .popup h2 {
+            margin-top: 0;
+        }
+
+        .popup button {
+            margin-top: 10px;
+        }
+
+        .popup:target {
+            display: block;
+        }
+
+        button {
+            background-color: orange;
+            font-family: "Architects Daughter", cursive;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1.4em;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .questions {
+            display: none;
+        }
+
+    </style>
+
+    <script>
+        function showQuestions(forWhom) {
+            document.getElementById('initial-buttons').style.display = 'none';  
+            document.getElementById(forWhom + '-questions').style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('initial-buttons').style.display = 'block';
+            document.getElementById('for-me-questions').style.display = 'none';
+            document.getElementById('for-parent-questions').style.display = 'none';
+        }
+    </script>
+
+</head>
+<body>
+    <nav>
+        <ul class="breadcrumb">
+            <li><a href="mod1">Module 1</a></li>
+            <li>. . .</li>
+            <li><a href="mod4">Module 4</a></li>
+            <li>Module 5</li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1><img src="/images/mod5_icon.png" width="150" height="150"> <b>Frequently Asked Questions</b></h1>
+    </header>
+    
+    <!--Let the user pick if they wanna se FAQ for parent or child-->
+    <section id="initial-buttons" class="hero">
+        <button onclick="showQuestions('for-me')"><b>For me</b></button>
+        <hr>
+        <button onclick="showQuestions('for-parent')"><b>For parent/guardian</b></button>
+    </section>
+    
+    <!--What child will see-->
+    <section id="for-me-questions" class="questions">
+        <section class="hero">
+            <h1><b>Child's Frequently Asked Questions</b></h1>
+
+            <a href="#popup1"><button><b>Which Vaccine Will Be Used?</b></button></a><br>
+            <br>
+            <a href="#popup2"><button><b>How Many HPV Doses Do I Need?</b></button></a><br>
+            <br>
+            <a href="#popup3"><button><b>What If I Have Already Had One Dose?</b></button></a><br>
+            <br>
+            <a href="#popup4"><button><b>Who Should Not Be Vaccinated?</b></button></a><br>
+            <br>
+            <a href="#popup5"><button><b>How Effective Is The Vaccine?</b></button></a><br>
+            <br>
+            <a href="#popup6"><button><b>What If My Parents Prefer To Wait Until I'm Older?</b></button></a><br>
+            <br>
+            <a href="#popup7"><button><b>Will I Be Seen As Promiscuous After Recieving The Vaccine Or Become Infertile In The Future?</b></button></a><br>
+            <br>
+            <a href="#popup8"><button><b>How Safe Is The HPV Vaccine?</b></button></a><br>
+            <br>
+            <a href="#popup9"><button><b>What Are The Side Effects Of HPV Vaccination?</b></button></a><br>
+            <br>
+            <a href="#popup10"><button><b>Will I Still Need Pap Smears?</b></button></a><br>
+            <br>
+            <a href="#popup11"><button><b>What If I Have Asthma? Am I Still Eligible?</b></button><a><br>
+            <br>
+            <a href="#popup12"><button><b>If I Think I May Be Pregnant Or Am Pregnant, Should I Still Get The Vaccine?</b></button><a><br>
+            <br>
+            <a href="#popup13"><button><b>What Can I Do If I Miss Out On The Vaccine Because Of Illness Or Absence On The Day Of The Nurses’ Visit?</b></button><a><br>
+            <br>
+            <a href="#popup14"><button><b>How Can I Access A Record Of The Vaccinations?</b></button><a><br>
+            <br>
+            <a href="#popup15"><button><b>Where Can I Find More Information About HPV Vaccination?</b></button><a><br>
+            <br>
+            <button onclick="goBack()">Back</button>
+        </section>
+     
+    </section>
+    
+    <!-- what parent will see-->
+    <section id="for-parent-questions" class="questions">
+        <section class="hero">
+            <h1><b>Parent's Frequently Asked Questions</b></h1>
+
+            <a href="#popup16"><button><b>Which Vaccine Will Be Used?</b></button></a><br>
+            <br>
+            <a href="#popup17"><button><b>How Many HPV Doses Does My Child Need?</b></button></a><br>
+            <br>
+            <a href="#popup18"><button><b>What About Adolescents Who Have Already Had One Dose?</b></button></a><br>
+            <br>
+            <a href="#popup19"><button><b>Who Should Not Be Vaccinated?</b></button></a><br>
+            <br>
+            <a href="#popup20"><button><b>How Effective Is The Vaccine?</b></button></a><br>
+            <br>
+            <a href="#popup21"><button><b>What If Prefer To Wait Until My Child Is Older?</b></button></a><br>
+            <br>
+            <a href="#popup22"><button><b>Will My Child Become Promiscuous After The Vaccine Or Infertile In The Future?</b></button></a><br>
+            <br>
+            <a href="#popup23"><button><b>How Safe Is The HPV Vaccine?</b></button></a><br>
+            <br>
+            <a href="#popup24"><button><b>What Are The Side Effects Of HPV Vaccination?</b></button></a><br>
+            <br>
+            <a href="#popup25"><button><b>Will My Daughter Still Need Pap Smears Like Myself?</b></button></a><br>
+            <br>
+            <a href="#popup26"><button><b>How Will The Sample Be Taken For The Screening Test?</b></button></a><br>
+            <br>
+            <a href="#popup27"><button><b>What If My Child Has Asthma, Can The Child Still Be Eligible?</b></button><a><br>
+            <br>
+            <a href="#popup28"><button><b>Should The Vaccine Be Given To A Female Student Who Is Or Thinks She May Be Pregnant?</b></button><a><br>
+            <br>
+            <a href="#popup29"><button><b>What Can I Do If My Child Misses Out On The Vaccine Because Of Illness Or Absence On The Day Of The Nurses’ Visit?</b></button><a><br>
+            <br>
+            <a href="#popup30"><button><b>How Can I Access A Record Of The Vaccinations?</b></button><a><br>
+            <br>
+            <a href="#popup31"><button><b>Where Can I Find More Information About HPV Vaccination?</b></button><a><br>
+            <br>
+            <button onclick="goBack()">Back</button>
+        </section>
+    </section>
+
+    <!------------------------------------------------Child pop-ups------------------------------------------------------>
+    <!-- child Q1 -->
+    <div class="popup" id="popup1">
+        <h2>Which Vaccine Will Be Used?</h2>
+        <p>A HPV vaccine that protects against 4 types of HPV (6, 11, 16, 18,) called Gardasil 4-Valent HPV vaccine.</p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q2 -->
+    <div class="popup" id="popup2">
+        <h2>How Many HPV Doses Do I Need?</h2>
+        <p>
+            From 2023 onwards, one dose of the HPV vaccine will be given instead of two doses. International research shows that one dose of any HPV vaccine provides the same protection as a two-dose course. Based on this evidence, other comparable countries such as the United Kingdom and Australia have also commenced transitioning to a one dose HPV vaccine.
+            <hr>
+            Adolescents who are significantly immunocompromised are recommended to have three doses of HPV vaccine. A 3 dose schedule requires an interval of 2 months between dose one and dose two, and four months between dose 2 and dose 3.
+            <hr>
+            Significant immunocompromise is defined as those with:
+            <ul>
+                <li>Primary or secondary immune-deficiencies (B lymphocyte antibody and T lymphocyte complete or partial deficiencies)</li>
+                <li>HIV infection</li>
+                <li>People with cancer</li>
+                <li>Organ transplantation</li>
+                <li>Autoimmune disease</li>
+                <li>Significant immunosuppressive therapy such as drugs that allow transplant of kidney, liver or heart</li>
+            </ul>
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q3 -->
+    <div class="popup" id="popup3">
+        <h2>What If I Have Already Had One Dose?</h2>
+        <p>Adolescents who have already received one dose of HPV vaccine no longer need a second dose. They are considered up to date and fully vaccinated.</p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q4 -->
+    <div class="popup" id="popup4">
+        <h2>Who Should Not Be Vaccinated?</h2>
+        <p>
+            HPV vaccine should not be given to people who:
+            <ul>
+                <li>are or may be pregnant.</li>
+                <li>have had anaphylaxis following a previous vaccine</li>
+                <li>have a history of anaphylaxis to yeast.</li>
+            </ul>
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q5 -->
+    <div class="popup" id="popup5">
+        <h2>How Effective Is The Vaccine?</h2>
+        <p>
+            The vaccine protects against high-risk and low-risk HPV types that cause over 70% of cervical cancers in women and 90% of genital warts.
+            <hr>
+            The latest research shows that the vaccine still offers close to 100% protection more than 10 years after it was given. As cervical cancer usually develops over 10 or more years, this HPV vaccine provides a 77% reduction in HPV types responsible for over 70% of cervical cancer.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q6 -->
+    <div class="popup" id="popup6">
+        <h2>What If My Parents Prefer To Wait Until I'm Older?</h2>
+        <p>
+            HPV vaccination is most effective when it is given to adolescents before they become sexually active. 
+            <hr>
+            The government has promised to provide free HPV vaccine for ages 9-14 at primary health centres when consent has been provided by parents/guardians. If your parents choose to wait until you are older, they will need to make arrangements with your nurse if it is available when you are ready or pay for it.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q7 -->
+    <div class="popup" id="popup7">
+        <h2>Will I Be Seen As Promiscuous After Recieving The Vaccine Or Become Infertile In The Future?</h2>
+        <p>
+            No, there is no connection between taking the vaccine and becoming promiscuous or infertility. 
+            <hr>
+            What the vaccine does is protect you from the virus in case you become sexually active. 
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q8 -->
+    <div class="popup" id="popup8">
+        <h2>How Safe Is The HPV Vaccine?</h2>
+        <p>
+            Generally, just like every other vaccine used in Nigeria is safe and must pass strict safety testing before being approved by the NAFDAC. In addition, the Primary health care board also monitors the safety of vaccines once they are in use.
+            <hr>
+            Also, Nurses will check for expiry dates before the vaccine is given.
+
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q9 -->
+    <div class="popup" id="popup9">
+        <h2>What Are The Side Effects Of HPV Vaccination?</h2>
+        <p>
+            Side effects are commonly mild and usually involve pain, swelling and redness at the injection site. 
+            <hr>
+            Serious side effects are rare. Reports have only shown very few people with mild side effects. It has been used in many developed countries since 2006.
+            <hr>
+            HPV vaccine pain is just like other vaccines, so no need to fear taking it.
+
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q10 -->
+    <div class="popup" id="popup10">
+        <h2>Will I Still Need Pap Smears?</h2>
+        <p>
+            Yes.
+            <hr>
+            Regular cervical screening tests (previously called Pap smears) are still important for vaccinated women, as the HPV vaccine does not protect against all types of HPV that can cause cervical cancer. 
+            <hr>
+            All women from 25 to 74 years of age or who have ever been sexually active should have a Cervical Screening Test every 5 years, regardless of their HPV vaccination status.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q11 -->
+    <div class="popup" id="popup11">
+        <h2>What If I Have Asthma? Am I Still Eligible?</h2>
+        <p>
+            The vaccine can be safely administered to someone who has asthma regardless of which medications they are taking.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q12 -->
+    <div class="popup" id="popup12">
+        <h2>If I Think I May Be Pregnant Or Am Pregnant, Should I Still Get The Vaccine?</h2>
+        <p>
+            No. 
+            <hr>
+            Any female student who is, or thinks she may be, pregnant should not be vaccinated. 
+            <hr>
+            On the day of the clinic, the vaccination nurse will ask you if you are or could be pregnant. If you answers yes to this question, you will not be vaccinated. 
+            <hr>
+            You will be urged to immediately discuss the issue with your parent/guardian and to seek medical help. 
+            <hr>
+            You will also be provided with contact details for a health referral service that will provide advice, support and guidance.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q13 -->
+    <div class="popup" id="popup13">
+        <h2>What Can I Do If I Miss Out On The Vaccine Because Of Illness Or Absence On The Day Of The Nurses’ Visit?</h2>
+        <p>
+            If HPV vaccination has been missed at school, catch-up vaccination should be arranged by your parents. 
+            <hr>
+            There is currently no catch-up clinics in Nigeria, otherwise parents should contact facilities where they will pay for the vaccine.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q14 -->
+    <div class="popup" id="popup14">
+        <h2>How Can I Access A Record Of The Vaccinations?</h2>
+        <p>
+            Information about your vaccinations will be uploaded to the Federal Ministry of Health (FMOH) Immunization Register so it can be linked to your existing immunization history. 
+            <hr>
+            Make sure you give the vaccination card to your parents to keep safe.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- child Q15 -->
+    <div class="popup" id="popup15">
+        <h2>Where Can I Find More Information About HPV Vaccination?</h2>
+        <p>
+            More information is available: 
+            <br>
+            <ul>
+                <li>By visiting <a href="www.caringnurse.org">www.caringnurse.org</a> or <a href="https://www.youtube.com/watch?v=USa9Aiq2BlI">YouTube</a> page</li>
+                <li>Or Youth friendly resource centres:</li>
+                <ul>
+                    <li>CaringNurse Resource Centre, Baracks Area, Saki</li>
+                    <li>Baptist Medical Centre, Ajegunle, Saki</li>
+                    <li>State Specialist Hospital, Kolawole, Saki</li>
+                    <li>Muslim Hospital, Ogbooro Road, Saki</li>
+                </ul>
+            </ul>
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+
+
+    <!------------------------------------------------Parents pop-ups------------------------------------------------------>
+
+
+    <!-- Parent Q1 -->
+    <div class="popup" id="popup16">
+        <h2>Which Vaccine Will Be Used?</h2>
+        <p>A HPV vaccine that protects against 4 types of HPV (6, 11, 16, 18,) called Gardasil 4-Valent HPV vaccine.</p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q2 -->
+    <div class="popup" id="popup17">
+        <h2>How Many HPV Doses Does My Child Need?</h2>
+        <p>
+            From 2023 onwards, one dose of the HPV vaccine will be given instead of two doses. International research shows that one dose of any HPV vaccine provides the same protection as a two-dose course. Based on this evidence, other comparable countries such as the United Kingdom and Australia have also commenced transitioning to a one dose HPV vaccine.
+            <hr>
+            Adolescents who are significantly immunocompromised are recommended to have three doses of HPV vaccine. A 3 dose schedule requires an interval of 2 months between dose one and dose two, and four months between dose 2 and dose 3.
+            <hr>
+            Significant immunocompromise is defined as those with:
+            <ul>
+                <li>Primary or secondary immune-deficiencies (B lymphocyte antibody and T lymphocyte complete or partial deficiencies)</li>
+                <li>HIV infection</li>
+                <li>People with cancer</li>
+                <li>Organ transplantation</li>
+                <li>Autoimmune disease</li>
+                <li>Significant immunosuppressive therapy such as drugs that allow transplant of kidney, liver or heart</li>
+            </ul>
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q3 -->
+    <div class="popup" id="popup18">
+        <h2>What About Adolescents Who Have Already Had One Dose?</h2>
+        <p>Adolescents who have already received one dose of HPV vaccine no longer need a second dose. They are considered up to date and fully vaccinated.</p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q4 -->
+    <div class="popup" id="popup19">
+        <h2>Who Should Not Be Vaccinated?</h2>
+        <p>
+            HPV vaccine should not be given to people who:
+            <ul>
+                <li>are or may be pregnant.</li>
+                <li>have had anaphylaxis following a previous vaccine</li>
+                <li>have a history of anaphylaxis to yeast.</li>
+            </ul>
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q5 -->
+    <div class="popup" id="popup20">
+        <h2>How Effective Is The Vaccine?</h2>
+        <p>
+            The vaccine protects against high-risk and low-risk HPV types that cause over 70% of cervical cancers in women and 90% of genital warts.
+            <hr>
+            The latest research shows that the vaccine still offers close to 100% protection more than 10 years after it was given. As cervical cancer usually develops over 10 or more years, this HPV vaccine provides a 77% reduction in HPV types responsible for over 70% of cervical cancer.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q6 -->
+    <div class="popup" id="popup21">
+        <h2>What If Prefer To Wait Until My Child Is Older?</h2>
+        <p>
+            HPV vaccination is most effective when it is given to adolescents before they become sexually active. 
+            <hr>
+            The government has promised to provide free HPV vaccine for ages 9-14 at primary health centres when consent has been provided by parents/guardians. If you choose to wait until your child is older you will need to make arrangements with your nurse if it is available when you are ready or pay for it.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q7 -->
+    <div class="popup" id="popup22">
+        <h2>Will My Child Become Promiscuous After The Vaccine Or Infertile In The Future?</h2>
+        <p>
+            No, there is no connection between taking the vaccine and becoming promiscuous or infertility.
+            <hr>
+            What the vaccine does is protect your child from the virus in case she becomes sexually active.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q8 -->
+    <div class="popup" id="popup23">
+        <h2>How Safe Is The HPV Vaccine?</h2>
+        <p>
+            Generally, just like every other vaccine used in Nigeria is safe and must pass strict safety testing before being approved by the NAFDAC. In addition, the Primary health care board also monitors the safety of vaccines once they are in use.
+            <hr>
+            Also, Nurses will check for expiry dates before the vaccine is given.
+
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q9 -->
+    <div class="popup" id="popup24">
+        <h2>What Are The Side Effects Of HPV Vaccination?</h2>
+        <p>
+            Side effects are commonly mild and usually involve pain, swelling and redness at the injection site.
+            <hr>
+            Serious side effects are rare. Reports have only shown very few people with mild side effects. It has been used in many developed countries since 2006.
+            <hr>
+            HPV vaccine pain is just like other vaccines, so no need to fear taking it.
+
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q10 -->
+    <div class="popup" id="popup25">
+        <h2>Will My Daughter Still Need Pap Smears Like Myself?</h2>
+        <p>
+            Yes.
+            <hr>
+            Regular cervical screening tests (previously called Pap smears) are still important for vaccinated women, as the HPV vaccine does not protect against all types of HPV that can cause cervical cancer.
+            <hr>
+            All women from 25 to 74 years of age or who have ever been sexually active should have a Cervical Screening Test every 5 years, regardless of their HPV vaccination status.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q11 -->
+    <div class="popup" id="popup26">
+        <h2>How Will The Sample Be Taken For The Screening Test?</h2>
+        <p>
+            The sample can be taken at any time even during menstruation or pregnancy. 
+            <hr>
+            The test involves the insertion of a long cotton swab a few centimetres into the vagina, labelled and sent to the laboratory. 
+            <hr>
+            The sample can be collected by oneself called self sample or by the health professional. Any of the methods you are comfortable with is okay. (show the anatomy of the cervix here and
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q12 -->
+    <div class="popup" id="popup27">
+        <h2>What If My Child Has Asthma, Can The Child Still Be Eligible?</h2>
+        <p>
+            The vaccine can be safely administered to someone who has asthma regardless of which medications they are taking.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q13 -->
+    <div class="popup" id="popup28">
+        <h2>Should The Vaccine Be Given To A Female Student Who Is Or Thinks She May Be Pregnant?</h2>
+        <p>
+            No.
+            <hr>
+            Any female student who is, or thinks she may be, pregnant should not be vaccinated.
+            <hr>
+            On the day of the clinic, the vaccination nurse will ask female students if they are or could be pregnant. If a student answers yes to this question, she will not be vaccinated. 
+            <hr>
+            The student will be urged to immediately discuss the issue with her parent/ guardian and to seek medical help. 
+            <hr>
+            She will also be provided with contact details for a health referral service that will provide advice, support and guidance.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q14 -->
+    <div class="popup" id="popup29">
+        <h2>What Can I Do If My Child Misses Out On The Vaccine Because Of Illness Or Absence On The Day Of The Nurses’ Visit?</h2>
+        <p>
+            If HPV vaccination has been missed at school, catch-up vaccination should be arranged by the parents. 
+            <hr>
+            There is currently no catch-up clinics in Nigeria, otherwise parents should contact facilities where they will pay for the vaccine.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q15 -->
+    <div class="popup" id="popup30">
+        <h2>How Can I Access A Record Of The Vaccinations?</h2>
+        <p>
+            Information about your child’s vaccinations will be uploaded to the Federal Ministry of Health (FMOH) Immunization Register so it can be linked to your child’s existing immunization history.
+            <hr>
+            Keep the vaccination card given to you safe. 
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- Parent Q16 -->
+    <div class="popup" id="popup31">
+        <h2>Where Can I Find More Information About HPV Vaccination?</h2>
+        <p>
+            More information is available:
+            <br>
+            <ul>
+                <li>By visiting <a href="www.caringnurse.org">www.caringnurse.org</a> or <a href="https://www.youtube.com/watch?v=USa9Aiq2BlI">YouTube</a> page</li>
+                <li>Or Youth friendly resource centres:</li>
+                <ul>
+                    <li>CaringNurse Resource Centre, Baracks Area, Saki</li>
+                    <li>Baptist Medical Centre, Ajegunle, Saki</li>
+                    <li>State Specialist Hospital, Kolawole, Saki</li>
+                    <li>Muslim Hospital, Ogbooro Road, Saki</li>
+                </ul>
+            </ul>
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+
+
+</body>
+</html>

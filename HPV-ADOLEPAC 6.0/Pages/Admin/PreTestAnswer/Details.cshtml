@@ -1,0 +1,72 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Admin.PreTestAnswer.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    .question-details {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .question-details dt {
+            font-weight: bold;
+            color: #333;
+            padding: 5px 0;
+        }
+
+        .question-details dd {
+            margin-left: 0;
+            padding: 5px 0 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+            .question-details dd:last-child {
+                border-bottom: none;
+            }
+
+        .question-details dt::after {
+            content: ":";
+        }
+
+</style>
+<h1>Details</h1>
+
+<div>
+    <h4>PreTestAnswer</h4>
+    <hr />
+    <dl class="row question-details">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestAnswer.Answer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestAnswer.Answer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestAnswer.DateAttempt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestAnswer.DateAttempt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestAnswer.Username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestAnswer.Username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestAnswer.PreTestQuestionID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestAnswer.PreTestQuestions.PreTestQuestionID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.PreTestAnswer?.PreTestAnswerID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,473 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Student.MyProfileModel
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "My Profile";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        .SuccessUpdated {
+            /*color: #77DD77;
+                    background-color: #90ee90;
+                    width: 80%;
+
+                    padding-bottom: 8px;
+                    padding-left: 20px;
+                    margin: 30px;*/
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding-bottom: 8px;
+            padding-left: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            max-width: 80%;
+            border: 20px;
+        }
+
+        .row {
+            padding: 5px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .form-container {
+            /*background-color: #fff;*/
+            padding: 20px;
+            border-radius: 25px;
+            border-color: brown;
+            max-width: 1500px;
+            width: 100%;
+        }
+
+        form h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+            .form-group label {
+                margin-bottom: 5px;
+                color: #666;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+                .form-group input:focus,
+                .form-group textarea:focus {
+                    border-color: #007BFF;
+                    outline: none;
+                }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            button:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+            }
+
+        .custom-radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .custom-radio {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            user-select: none;
+        }
+
+            .custom-radio input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            .custom-radio span {
+                margin-left: 10px;
+                color: #666;
+            }
+
+            .custom-radio input:checked ~ span::before {
+                background-color: #007BFF;
+                border-color: #007BFF;
+            }
+
+            .custom-radio span::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                height: 20px;
+                width: 20px;
+                background-color: #fff;
+                border: 2px solid #ccc;
+                border-radius: 50%;
+                box-sizing: border-box;
+                transition: all 0.3s;
+            }
+
+            .custom-radio input:checked ~ span::after {
+                display: block;
+            }
+
+            .custom-radio span::after {
+                content: "";
+                position: absolute;
+                left: 7px;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+                display: none;
+                width: 6px;
+                height: 12px;
+                border: solid #fff;
+                border-width: 0 2px 2px 0;
+            }
+    </style>
+</head>
+
+<h1>My Details</h1>
+
+@if ((string)ViewData["ExistInDB"] == "true")
+{
+    <h4>Hi, @UserManager.GetUserName(User)! This is where you change your profile </h4>
+}
+else
+{
+    <h4>Hi, @UserManager.GetUserName(User)! Let's get to know you ;) </h4>
+}
+
+<hr />
+
+@if (ViewData["SuccessDB"] != null)
+{
+    <div class="SuccessUpdated">
+        <hr />
+        <h5>
+            Thanks. <strong>@Model.Myself.StudentUserName</strong>
+            You have successfully updated your details
+        </h5>
+        <h5> You can start browsing other links now.</h5>
+    </div>
+    <br>
+}
+
+
+<div class="form-container">
+    <div>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if ((string)ViewData["ExistInDB"] == "true")
+            {
+                @* The value of the username is bound with the model. *@
+                <input type="hidden" asp-for="Myself.StudentUserName" value="@UserManager.GetUserName(User)" />
+            }
+            else
+            {
+                @* The dummy value of the email is only for passing the validation.
+            It won't be used at all.     *@
+                <input type="hidden" asp-for="Myself.StudentUserName" value="@UserManager.GetUserName(User)" />
+            }
+
+            <div class="form-group">
+                <label asp-for="Myself.StudentEmail" class="control-label"></label>
+                <input asp-for="Myself.StudentEmail" class="form-control" placeholder="Optional" />
+                <span asp-validation-for="Myself.StudentEmail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Myself.StudentParentPhone" class="control-label"></label>
+                <input asp-for="Myself.StudentParentPhone" class="form-control" placeholder="Optional" />
+                <span asp-validation-for="Myself.StudentParentPhone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Myself.StudentParentName" class="control-label"></label>
+                <input asp-for="Myself.StudentParentName" class="form-control" />
+                <span asp-validation-for="Myself.StudentParentName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Myself.StudentGender" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.StudentGender" value="Boy" /> <span>Boy</span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.StudentGender" value="Girl" /> <span>Girl</span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.StudentGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.StudentAge" class="control-label"></label>
+                <input asp-for="Myself.StudentAge" class="form-control" />
+                <span asp-validation-for="Myself.StudentAge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.School" class="control-label"></label>
+                <input asp-for="Myself.School" class="form-control" />
+                <span asp-validation-for="Myself.School" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Myself.Grade" class="control-label"></label>
+                <input asp-for="Myself.Grade" class="form-control" />
+                <span asp-validation-for="Myself.Grade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.Religion" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.Religion" value="Christianity" /> <span>Christianity </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.Religion" value="Islam" /> <span>Islam </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.Religion" value="Traditional" /> <span>Traditional </span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.Religion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.EthinicGroup" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.EthinicGroup" value="Yoruba" /> <span>Yoruba </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.EthinicGroup" value="Hausa" /> <span>Hausa </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.EthinicGroup" value="Igbo" /> <span>Igbo </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.EthinicGroup" value="Others" /> <span>Others </span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.EthinicGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.ParentalMaritalStatus" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.ParentalMaritalStatus" value="Single" /> <span>Single </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.ParentalMaritalStatus" value="Married" /> <span>Married </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.ParentalMaritalStatus" value="Widow" /> <span>Widow </span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.ParentalMaritalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.FatherEdulevel" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FatherEdulevel" value="No formal education" /> <span>He didn't finish school </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FatherEdulevel" value="Primary education" /> <span>He finished Primary School </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FatherEdulevel" value="Secondary education" /> <span>He finished High School </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FatherEdulevel" value="First degree" /> <span>He finished University/College </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FatherEdulevel" value="Post graduate" /> <span>He finished University/College but he's still studying </span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.FatherEdulevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.MotherEdulevel" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MotherEdulevel" value="No formal education" /> <span>She didn't finish school </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MotherEdulevel" value="Primary education" /> <span>She finished Primary School </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MotherEdulevel" value="Secondary education" /> <span>She finished High School </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MotherEdulevel" value="First degree" /> <span>She finished University/College </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MotherEdulevel" value="Post graduate" /> <span>She finished University/College but he's still studying </span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.MotherEdulevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.FatherOccupation" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FatherOccupation" value="Business" /> <span>He owns a business </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FatherOccupation" value="Employed" /> <span>He works for someone </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FatherOccupation" value="Unemployed" /> <span>He doesn't work </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FatherOccupation" value="Others" /> <span>Others</span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.FatherOccupation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.MotherOccupation" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MotherOccupation" value="Business" /> <span>She owns a business </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MotherOccupation" value="Employed" /> <span>She works for someone </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MotherOccupation" value="Unemployed" /> <span>She doesn't work </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MotherOccupation" value="Others" /> <span>Others</span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.MotherOccupation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.MonthlyIncome" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MonthlyIncome" value="less than N20000" /> <span>less than N20,000 (we are poor) </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MonthlyIncome" value="N20000-40000" /> <span>N20,000-40,000 (we are barely making enough) </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MonthlyIncome" value="N41000-60000" /> <span>N41,000-60,000 (we are making just enough) </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MonthlyIncome" value="more than N60000" /> <span>more than N60,000 (we make lots of money) </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.MonthlyIncome" value="I don't know" /> <span>I don't know</span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.MonthlyIncome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.AnnualIncome" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.AnnualIncome" value="Low" /> <span>We're poor :( </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.AnnualIncome" value="Medium" /> <span>We are good with money </span>
+                    </label>
+
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.AnnualIncome" value="High" /> <span>We are rich! </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.AnnualIncome" value="I don't know" /> <span>I don't know </span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.AnnualIncome" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Myself.DeviceOwnership" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.DeviceOwnership" value="Yes" /> <span>Yes </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.DeviceOwnership" value="No" /> <span>No </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.DeviceOwnership" value="I don't know" /> <span>I don't know</span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.DeviceOwnership" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Myself.FrequencySub" class="control-label"></label>
+                <div class="custom-radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FrequencySub" value="Daily" /> <span>Daily </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FrequencySub" value="Weekly" /> <span>Weekly </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FrequencySub" value="Monthly" /> <span>Monthly </span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" asp-for="Myself.FrequencySub" value="I don't know" /> <span>I don't know</span>
+                    </label>
+                </div>
+                <span asp-validation-for="Myself.FrequencySub" class="text-danger"></span>
+            </div>
+
+
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+
+        <a class="btn-up" href="#top"><img src="~/images/upbtn.png" style="width:80px;" /></a>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

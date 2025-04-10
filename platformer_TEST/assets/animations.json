@@ -1,0 +1,73 @@
+{
+    "anims": [
+        {
+            "key": "item-feedback/item-feedback",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "item-feedback-1",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "item-feedback-3",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "item-feedback-4",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "item-feedback-2",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 12,
+            "skipMissedFrames": true,
+            "randomFrame": false,
+            "hideOnComplete": true
+        },
+        {
+            "key": "player/idle/player-idle",
+            "type": "frame",
+            "frames": [
+                {
+                    "key": "player-idle",
+                    "duration": 0,
+                    "keyframe": false
+                },
+                {
+                    "key": "player-idle-2",
+                    "duration": 0,
+                    "keyframe": false
+                }
+            ],
+            "frameRate": 2,
+            "skipMissedFrames": true,
+            "repeat": -1,
+            "randomFrame": false
+        },
+        {
+            "key": "player/run/player-run",
+            "type": "frame",
+            "frames": [],
+            "frameRate": 15,
+            "skipMissedFrames": true,
+            "repeat": -1,
+            "randomFrame": false
+        }
+    ],
+    "globalTimeScale": 1,
+    "meta": {
+        "app": "Phaser Editor 2D v3",
+        "contentType": "Phaser v3 Animations"
+    },
+    "settings": {
+        "sourceLang": "JAVA_SCRIPT",
+        "esModule": false,
+        "generateCode": false
+    }
+}

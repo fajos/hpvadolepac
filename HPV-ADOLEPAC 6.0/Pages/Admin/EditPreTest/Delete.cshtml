@@ -1,0 +1,58 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Admin.EditPreTest.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PreTestQuestions</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestionOption1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestionOption1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestionOption2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestionOption2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestionOption3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestionOption3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestionOption4)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestionOption4)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestionOption5)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestionOption5)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="PreTestQuestions.PreTestQuestionID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,68 @@
+{
+    "id": "91928cc0-d894-4c51-9a39-3b42db4248bd",
+    "sceneType": "SCENE",
+    "settings": {
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "GameWin",
+        "borderWidth": 288,
+        "borderHeight": 192
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "45c3de90-22b7-4623-91c6-450164c3b545",
+            "label": "image",
+            "texture": {
+                "key": "blank_board"
+            },
+            "x": 149,
+            "y": 95,
+            "scaleX": 1.7,
+            "scaleY": 1.7
+        },
+        {
+            "type": "BitmapText",
+            "id": "a59b2e02-9163-4c4c-95af-ea77db62836d",
+            "label": "win",
+            "x": 34,
+            "y": 32,
+            "text": "You've reached the\nvaccine center!",
+            "font": "press2start",
+            "align": 2,
+            "fontSize": 12
+        },
+        {
+            "type": "BitmapText",
+            "id": "afa8f53c-456f-4833-b4c2-0f5a3db0787e",
+            "label": "share",
+            "x": 64,
+            "y": 70,
+            "text": "It's time to share\nwhat you've learned \nwith friends\nand family",
+            "font": "press2start",
+            "align": 1,
+            "fontSize": 8
+        },
+        {
+            "type": "Image",
+            "id": "f7feb4e6-17fd-4005-9638-cdfa69fc6ebc",
+            "label": "press_enter_text",
+            "scope": "CLASS",
+            "components": [
+                "ScrollFactorX"
+            ],
+            "texture": {
+                "key": "press-enter-text"
+            },
+            "x": 139,
+            "y": 130
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

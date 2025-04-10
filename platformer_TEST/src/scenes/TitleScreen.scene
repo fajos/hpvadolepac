@@ -1,0 +1,144 @@
+{
+    "id": "80f0905d-0fb2-47a4-a786-09ec69cd7129",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapWidth": 176,
+        "snapHeight": 368,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "TitleScreen",
+        "borderWidth": 288,
+        "borderHeight": 192
+    },
+    "displayList": [
+        {
+            "type": "TileSprite",
+            "id": "cfd2799a-9699-4032-972b-78702790f39b",
+            "label": "background",
+            "scope": "CLASS",
+            "texture": {
+                "key": "back"
+            },
+            "originX": 0,
+            "originY": 0,
+            "width": 384,
+            "height": 240,
+            "tileScaleX": 0.3,
+            "tileScaleY": 0.3
+        },
+        {
+            "type": "TileSprite",
+            "id": "40e33168-a717-4144-82d0-1c158f1b0444",
+            "label": "middle",
+            "scope": "CLASS",
+            "texture": {
+                "key": "middle"
+            },
+            "y": 80,
+            "scaleX": 0,
+            "scaleY": 0,
+            "originX": 0,
+            "originY": 0,
+            "width": 384,
+            "height": 368
+        },
+        {
+            "type": "Image",
+            "id": "3e8695cf-7feb-4e2b-843b-afe60af4fa46",
+            "label": "title_screen",
+            "scope": "CLASS",
+            "components": [
+                "ScrollFactorX"
+            ],
+            "texture": {
+                "key": "title-screen"
+            },
+            "x": 144,
+            "y": 90,
+            "scaleX": 0,
+            "scaleY": 0
+        },
+        {
+            "type": "Image",
+            "id": "13131b77-e903-498e-9dcd-d5ec2927ea55",
+            "label": "credits_text",
+            "components": [
+                "ScrollFactorX"
+            ],
+            "texture": {
+                "key": "credits-text"
+            },
+            "x": 144,
+            "y": 174,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "8e6a1b7b-5c56-4392-896b-19189a236559",
+            "label": "press_enter_text",
+            "scope": "CLASS",
+            "components": [
+                "ScrollFactorX"
+            ],
+            "texture": {
+                "key": "press-enter-text"
+            },
+            "x": 144,
+            "y": 149
+        },
+        {
+            "type": "Text",
+            "id": "bf445e1a-7465-4557-bc30-49e887224e18",
+            "label": "title",
+            "x": 43,
+            "y": 68,
+            "text": "VaccineQuest",
+            "fontFamily": "Atari",
+            "fontSize": "36px",
+            "color": "#fea44bff",
+            "stroke": "#330000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "51139584-cf0d-4858-b545-7deae7efbb1d",
+            "label": "instructions",
+            "scope": "CLASS",
+            "texture": {
+                "key": "instructions"
+            },
+            "x": 144,
+            "scaleX": 1.3,
+            "scaleY": 1.3,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "BitmapText",
+            "id": "7106a140-62a9-4298-b96e-2b3ca23d4ef7",
+            "label": "credits",
+            "x": 57,
+            "y": 168,
+            "text": "Created using Phaser's \nbase platformer game",
+            "font": "press2start",
+            "fontSize": 8
+        },
+        {
+            "prefabId": "2d3f9249-6fcd-4c7d-bd2f-77fa616af7e8",
+            "id": "163f4218-e557-4725-9e12-98fff92becde",
+            "unlock": [
+                "sceneKey"
+            ],
+            "label": "startLevelAction",
+            "scope": "CLASS",
+            "sceneKey": "Level"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

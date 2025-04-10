@@ -1,0 +1,161 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Student.mod4Model
+@{
+    ViewData["Title"] = "Module 4";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        button {
+            background-color: orange;
+            font-family: "Architects Daughter", cursive;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1.4em;
+            border: none;
+            border-radius: 6px;
+        }
+
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #CE65BF;
+            padding: 20px;
+            border: none;
+            z-index: 9999;
+            border-radius: 6px;
+            animation: fadeIn 0.4s ease forwards;
+            max-height: 80vh;
+            overflow: auto;
+        }
+
+        @@keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .popup h2 {
+            margin-top: 0;
+        }
+
+        .popup button {
+            margin-top: 10px;
+        }
+
+        .popup:target {
+            display: block;
+        }
+
+        .questions {
+            display: none;
+        }
+
+    </style>
+
+    <style media="screen and (min-width: 768px)">
+        .image {
+            width: 250px;
+            height: auto;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <nav>
+        <ul class="breadcrumb">
+            <li><a href="mod1">Module 1</a></li>
+            <li><a href="mod2">Module 2</a></li>
+            <li><a href="mod3">Module 3</a></li>
+            <li>Module 4</li>
+        </ul>
+    </nav>
+    <header>
+        <h1><img src="/images/mod4_icon.png" width="150" height="150"> <b>Welcome to Module 4</b></h1>
+    </header>
+
+    <section class="hero">
+
+        <h1><b><span style="color:orange;">Cervical Screening</span></b></h1>
+
+        <h2>
+            Women between ages 25 and 74 who have ever been sexually active should have a Cervical Screening Test (CST) every 5-year interval as the only way to detect HPV infection and cervical cancer early.
+            <br><br>
+            <img src="/images/cervicalScreen_mod4.png" class="image" width="200" height="200">
+            <br>
+            CST can be done at any time during the menstrual cycle.
+        </h2>
+
+        <hr>
+
+        <h1><b><span style="color:orange;">CST</span></b></h1>
+
+        <h2>
+            A long cotton swab inserted a few cm into your vagina to take the sample either by self-collection or by the nurse.
+            <br><br>
+            <img src="/images/cervicalTest_mod4.png" class="image" width="200" height="200">
+            <br><br>
+            Further instructions will be given by your nurse.
+            <br>
+            Sample is well labeled and sent to the laboratory.
+            <br><br>
+            CST Risk Results:
+            <br><br>
+            <b><span style="color:green;">Negative/Low risk</span></b> – Return to screening again in 5 years
+            <br><br>
+            <b><span style="color:orange;">Intermediate</span></b> – Repeat test in 12 months
+            <br><br>
+            <b><span style="color:red;">Positive/Higher risk</span></b>Positive/Higher risk – refer to a specialist
+        </h2>
+
+        <hr>
+
+        <h1><b>FAQ</b></h1>
+
+        <a href="#popup1"><button><b>For younger women who had HPV vaccination, why should you go for a cervical screening test?</b></button></a><br>
+        <br>
+        <a href="#popup2"><button><b>Can I still go for a Cervical Screening Test (CST) during pregnancy or when menstruating?</b></button></a><br>
+        <br>
+        <a href="mod5">
+            <button>
+                <b>Next Module</b>
+            </button>
+        </a>
+    </section>
+
+    <!-- faq Q1 -->
+    <div class="popup" id="popup1">
+        <h2>For younger women who had HPV vaccination, why should you go for a cervical screening test?</h2>
+        <p>More than 70% of CC occur in women who have never been screened or are not up to date with CCS.</p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+    <!-- faq Q2 -->
+    <div class="popup" id="popup2">
+        <h2>Can I still go for a Cervical Screening Test (CST) during pregnancy or when menstruating?</h2>
+        <p>
+            Yes!
+            <hr>
+            It is safe for women who are pregnant to have Cervical Screening Test (CST) at any time if they are due or overdue.
+            <hr>
+            Then if you are comfortable the test can be done any time during your menstrual cycle, even when you menstruate.
+        </p>
+        <a href="#" onclick="history.go(-1);"><button>OK</button></a>
+    </div>
+</body>

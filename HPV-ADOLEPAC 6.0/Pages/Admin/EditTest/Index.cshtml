@@ -1,0 +1,72 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Admin.EditTest.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TestQuestions[0].TestQuestion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestQuestions[0].TestQuestionOption1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestQuestions[0].TestQuestionOption2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestQuestions[0].TestQuestionOption3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestQuestions[0].TestQuestionOption4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestQuestions[0].CorrectOption)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestQuestions[0].Feedback)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TestQuestions) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TestQuestion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TestQuestionOption1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TestQuestionOption2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TestQuestionOption3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TestQuestionOption4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorrectOption)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feedback)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TestQuestionID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TestQuestionID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TestQuestionID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

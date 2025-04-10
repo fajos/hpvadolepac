@@ -1,0 +1,170 @@
+{
+	"textures": [
+		{
+			"image": "atlas.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 144,
+				"h": 127
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "item-feedback/item-feedback-2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 27,
+						"y": 32,
+						"w": 64,
+						"h": 62
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 64,
+						"h": 62
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "item-feedback/item-feedback-3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 27,
+						"y": 30,
+						"w": 59,
+						"h": 61
+					},
+					"frame": {
+						"x": 1,
+						"y": 65,
+						"w": 59,
+						"h": 61
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "player/idle/player-idle",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 47,
+						"h": 77
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 36,
+						"h": 73
+					},
+					"frame": {
+						"x": 67,
+						"y": 1,
+						"w": 36,
+						"h": 73
+					},
+					"anchor": {
+						"x": 0.47558386411889597,
+						"y": 0.9882506527415144
+					}
+				},
+				{
+					"filename": "item-feedback/item-feedback-4",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 38,
+						"y": 43,
+						"w": 38,
+						"h": 38
+					},
+					"frame": {
+						"x": 105,
+						"y": 1,
+						"w": 38,
+						"h": 38
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "item-feedback/item-feedback-1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 41,
+						"y": 45,
+						"w": 45,
+						"h": 45
+					},
+					"frame": {
+						"x": 62,
+						"y": 76,
+						"w": 45,
+						"h": 45
+					},
+					"anchor": {
+						"x": 0.5,
+						"y": 0.5
+					}
+				},
+				{
+					"filename": "player/idle/player-idle-2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 48,
+						"h": 76
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 4,
+						"w": 31,
+						"h": 72
+					},
+					"frame": {
+						"x": 109,
+						"y": 41,
+						"w": 31,
+						"h": 72
+					},
+					"anchor": {
+						"x": 0.4989561586638831,
+						"y": 0.9868938401048493
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:36c62672599b7aadf49c3b4099f5293a:1a568851b192bf90d9f069bce93ab06b:cbce6b53f0f49e0bf15173c25c41f876$"
+	}
+}

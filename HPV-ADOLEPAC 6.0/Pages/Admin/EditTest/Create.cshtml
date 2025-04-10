@@ -1,0 +1,64 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Admin.EditTest.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TestQuestions</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TestQuestions.TestQuestion" class="control-label"></label>
+                <input asp-for="TestQuestions.TestQuestion" class="form-control" />
+                <span asp-validation-for="TestQuestions.TestQuestion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TestQuestions.TestQuestionOption1" class="control-label"></label>
+                <input asp-for="TestQuestions.TestQuestionOption1" class="form-control" />
+                <span asp-validation-for="TestQuestions.TestQuestionOption1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TestQuestions.TestQuestionOption2" class="control-label"></label>
+                <input asp-for="TestQuestions.TestQuestionOption2" class="form-control" />
+                <span asp-validation-for="TestQuestions.TestQuestionOption2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TestQuestions.TestQuestionOption3" class="control-label"></label>
+                <input asp-for="TestQuestions.TestQuestionOption3" class="form-control" />
+                <span asp-validation-for="TestQuestions.TestQuestionOption3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TestQuestions.TestQuestionOption4" class="control-label"></label>
+                <input asp-for="TestQuestions.TestQuestionOption4" class="form-control" />
+                <span asp-validation-for="TestQuestions.TestQuestionOption4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TestQuestions.CorrectOption" class="control-label"></label>
+                <input asp-for="TestQuestions.CorrectOption" class="form-control" placeholder="Option [Number]" />
+                <span asp-validation-for="TestQuestions.CorrectOption" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TestQuestions.Feedback" class="control-label"></label>
+                <input asp-for="TestQuestions.Feedback" class="form-control" />
+                <span asp-validation-for="TestQuestions.Feedback" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

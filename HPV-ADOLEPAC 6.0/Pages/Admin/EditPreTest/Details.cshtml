@@ -1,0 +1,55 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Admin.EditPreTest.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>PreTestQuestions</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestionOption1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestionOption1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestionOption2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestionOption2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestionOption3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestionOption3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestionOption4)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestionOption4)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PreTestQuestions.PreTestQuestionOption5)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PreTestQuestions.PreTestQuestionOption5)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.PreTestQuestions?.PreTestQuestionID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

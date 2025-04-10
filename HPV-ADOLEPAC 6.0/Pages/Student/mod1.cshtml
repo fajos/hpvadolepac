@@ -1,0 +1,116 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Student.mod1Model
+@{
+    ViewData["Title"] = "Module 1";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        ul {
+            text-align: center;
+            padding-left: 0;
+        }
+
+        li {
+            text-align: center;
+            list-style-position: inside;
+        }
+
+        button {
+            background-color: orange;
+            font-family: "Architects Daughter", cursive;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1.4em;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .image, .responsive-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image {
+            margin-right: 100px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+    </style>
+
+    <style media="screen and (min-width: 768px)">
+        .image {
+            width: 250px;
+            height: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1><img src="/images/mod1_icon.png" width="150" height="150"> <b>Welcome to Module 1</b></h1>
+    </header>
+    <section class="hero">
+        <h1><b>What is <span style="color:orange;">HPV</span>?</b></h1>
+        <h2>
+            HPV is a short word that stands for <span style="color: orange;">H</span>uman <span style="color: orange;">P</span>apilloma<span style="color: orange;">V</span>irus. HPV is a common sexually transmitted infection which
+            usually shows no symptoms and goes away by itself. However, it can sometimes cause serious illnesses such as
+            cervical cancer in females and penile cancer in males.
+            <img src="/images/mod1_icon_2.png" class="image" width="200" height="200"> <img src="/images/mod1_icon_3.png" width="200" height="200" style="margin-top: 20px; margin-bottom: 20px;">
+            <br>
+            <b>HPV is responsible for : </b>
+            <ul>
+                <li>Almost all cases of cervical cancer</li>
+                <li>Around 90% of genital warts</li>
+                <li>95% of all male HPV-related cancers (penile, oropharyngeal, anal, etc.)</li>
+            </ul>
+        </h2>
+
+        <br>
+        <h1><b>How <span style="color:orange;">common</span> is <span style="color:orange;">HPV</span>?</b></h1>
+        <h2>
+            Four out of five people have at least one type of HPV at some time in their lives. It is sometimes called the
+            'common cold' of sexual activity. HPV infects both males and females.
+        </h2>
+        <img src="/images/mod1_icon_4.png" class="responsive-image" style="margin-bottom: 50px;">
+
+
+        <br>
+
+        <h1><b>How is HPV <span style="color:orange;">transmitted</span>?</b></h1>
+        <h2>
+            HPV is spread through genital contact during sex with someone who has the virus. Usually, this happens without anyone
+            ever knowing it or causing any problems. The virus passes through tiny breaks in the skin and is not spread through
+            blood or other body fluids. <br>
+            <br>
+            You can be exposed to HPV the first time sexual activity occurs, from only one sexual partner.
+            Condoms offer limited protection, as they do not cover all of the genital skin.
+        </h2>
+        <br>
+
+        <h1><b>Reproductive Anatomy Affected by <span style="color:orange;">HPV</span></b></h1>
+        <img src="/images/mod1_icon_5.png" class="responsive-image" style="margin-bottom: 10px;">
+        <h2>
+            This diagram of the reproductive system is showing the cervix of a female.
+            <br><br>
+            The cervix is the muscular opening that runs between the uterus and the vagina.
+        </h2>
+
+        <hr>
+
+        <a href="mod2">
+            <button>
+                <b>Next Module</b>
+            </button>
+        </a>
+    </section>
+</body>

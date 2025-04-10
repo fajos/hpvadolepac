@@ -1,0 +1,84 @@
+@page
+@model HPV_ADOLEPAC_6._0.Pages.Admin.EditPostAnswer.IndexModel
+
+@{
+    ViewData["Title"] = "Post-Test Answers";
+
+    var answerCount = Model.PostTestAnswer.Count();
+}
+
+<h1>Post-Test Answers</h1>
+<h2>Shown Records: @answerCount</h2>
+
+<!-- Search and Filter Form -->
+<form method="get">
+    <div class="row">
+        <div class="col-sm-auto fw-bold">
+            <label for="fromDate">From:</label>
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control" type="date" asp-for="fromDate" />
+        </div>
+
+        <div class="col-sm-auto fw-bold">
+            <label for="toDate">To:</label>
+        </div>
+        <div class="col-sm-2">
+            <input class="form-control" type="date" asp-for="toDate" />
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-auto">
+            <label for="box" class="fw-bold">Search:</label>
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" name="SearchString" id="box" />
+        </div>
+        <div class="col-sm-auto">
+            <input type="submit" value="Search" class="btn btn-primary">
+        </div>
+        <div class="col-sm-auto">
+            <input type="submit" value="Show All Records" name="ShowAll" class="btn btn-primary">
+        </div>
+    </div>
+</form>
+
+<!-- Export to Excel Button -->
+<form method="post" asp-page-handler="ExportToExcel" class="mt-4">
+    <div class="row">
+        <div class="col-sm-auto">
+            <button type="submit" class="btn btn-success">Export to Excel</button>
+        </div>
+    </div>
+</form>
+
+<!-- Table for Displaying Post-Test Answers -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.PostTestAnswer[0].Username)</th>
+            <th>@Html.DisplayNameFor(model => model.PostTestAnswer[0].PostTestQuestions.PostTestQuestion)</th>
+            <th>@Html.DisplayNameFor(model => model.PostTestAnswer[0].Answer)</th>
+            <th>@Html.DisplayNameFor(model => model.PostTestAnswer[0].DateAttempt)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PostTestAnswer)
+
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Username)</td>
+                <td>@Html.DisplayFor(modelItem => item.PostTestQuestions.PostTestQuestion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Answer)</td>
+                <td>@Html.DisplayFor(modelItem => item.DateAttempt)</td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.PostTestAnswerID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.PostTestAnswerID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

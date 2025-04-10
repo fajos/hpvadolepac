@@ -1,0 +1,219 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Student.EducationModel
+@{
+    ViewData["Title"] = "Education";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style media="screen and (min-width:1200px)">
+        .btn.disabled {
+            pointer-events: none;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        div.educationContent {
+            margin: auto;
+            position: relative;
+            width: 80%;
+            min-height: 600px;
+            background-repeat: no-repeat,no-repeat, no-repeat;
+            background-image: url(/images/bee.gif),url(/images/butterfly.gif),url(/images/backgroundlarge.png);
+            background-size: 80px 80px, 80px 80px, contain;
+            background-position-x: 40%, 80%, center;
+            background-position-y: 30%,80%,top;
+        }
+
+        #preTestBtn {
+            width: 20%;
+            float: left;
+            padding-top: 10%;
+        }
+
+        #learningBtn {
+            width: 25%;
+            float: left;
+            padding-top: 25%;
+        }
+
+        #testBtn {
+            width: 25%;
+            float: left;
+            padding-top: 43%;
+        }
+
+        #postBtn {
+            width: 30%;
+            float: left;
+            padding-top: 50%;
+        }
+    </style>
+
+    <style media="screen and (max-width:1099px) and (min-width:800px)">
+        .btn.disabled {
+            pointer-events: none;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        div.educationContent {
+            position: relative;
+            width: 90%;
+            min-height: 600px;
+            background-repeat: no-repeat,no-repeat, no-repeat;
+            background-image: url(/images/bee.gif),url(/images/butterfly.gif),url(/images/backgroundMed.png);
+            background-size: 80px 80px, 80px 80px, contain;
+            background-position-x: 50%, 80%, center;
+            background-position-y: 30%,70%,top;
+        }
+
+        .btn {
+            font-size: 16px;
+            margin-top: 2px;
+            display: inline-block;
+            padding: 5px;
+            background-color: orange;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #preTestBtn {
+            width: 20%;
+            float: left;
+            padding-top: 10%;
+        }
+
+        #learningBtn {
+            width: 25%;
+            float: left;
+            padding-top: 25%;
+        }
+
+        #testBtn {
+            width: 25%;
+            float: left;
+            padding-top: 43%;
+        }
+
+        #postBtn {
+            width: 30%;
+            float: left;
+            padding-top: 50%;
+        }
+    </style>
+
+
+    <style media="screen and (max-width:799px)">
+        .btn.disabled {
+            pointer-events: none;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        div.educationContent {
+            width: 100%;
+            min-height: 700px;
+            background-repeat: no-repeat,no-repeat,no-repeat;
+            background-image: url(/images/bee.gif),url(/images/butterfly.gif),url(/images/backgroundSmall.png);
+            background-size: 60px 60px, 60px 60px,contain;
+            background-position-x: 45%, 60%, center;
+            background-position-y: 40%,80%, 0%;
+        }
+
+        .btn {
+            font-size: 16px;
+            margin-top: 2px;
+            display: inline-block;
+            padding: 5px;
+            background-color: orange;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        #preTestBtn {
+            padding-left: 30%;
+            padding-top: 10%;
+        }
+
+        #learningBtn {
+            padding-left: 30%;
+            padding-top: 22%;
+        }
+
+        #testBtn {
+            padding-left: 40%;
+            padding-top: 20%;
+        }
+
+        #postBtn {
+            padding-left: 50%;
+            padding-top: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Education</h1>
+        <h2></h2>
+    </header>
+
+    <div class="educationContent">
+
+        <div id="preTestBtn">  
+            @if (Model.Student.MyProfileCompleted == true)
+            {
+               <a href="/Student/PreTest" class="btn">Pre-Test</a>
+            }
+            else
+            {
+                <a href="javascript:void(0);" class="btn disabled" title="Complete MyProfile first">Pre-Test</a>
+            }
+            <hr>
+        </div>
+
+
+        <div id="learningBtn">
+            @if (Model.Student.PreTestCompleted == true)
+            {
+                <a href="/Student/learningModsHome" class="btn">Learning Modules</a>
+            }
+            else
+            {
+                <a href="javascript:void(0);" class="btn disabled" title="Complete the Pre-Test first">Learning Modules</a>
+            }
+
+        </div>
+
+        <div id="testBtn">
+             @if (Model.Student.LearningModulesCompleted == true)
+            {
+                <a href="/Student/Test" class="btn">Interventional Quiz</a>
+            }
+            else
+            {
+                <a href="javascript:void(0);" class="btn disabled" title="Complete the Learning Modules first">Interventional Quiz</a>
+            }
+            <hr>
+        </div>
+
+        <div id="postBtn">
+             @if (Model.Student.KnowledgeTestCompleted == true)
+            {
+                <a href="/Student/PostTest" class="btn">Post-Test</a>
+            }
+            else
+            {
+                <a href="javascript:void(0);" class="btn disabled" title="Complete the Knowledge Test first">Post-Test</a>
+            }
+        </div>
+    </div>
+</body>
+
+</html>

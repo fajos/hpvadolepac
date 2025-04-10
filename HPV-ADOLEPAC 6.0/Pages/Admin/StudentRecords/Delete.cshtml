@@ -1,0 +1,184 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Admin.StudentRecords.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<style>
+    .question-details {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .question-details dt {
+            font-weight: bold;
+            color: #333;
+            padding: 5px 0;
+        }
+
+        .question-details dd {
+            margin-left: 0;
+            padding: 5px 0 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+            .question-details dd:last-child {
+                border-bottom: none;
+            }
+
+        .question-details dt::after {
+            content: ":";
+        }
+
+</style>
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>student</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.StudentUserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.StudentUserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.StudentEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.StudentEmail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.StudentParentPhone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.StudentParentPhone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.StudentParentName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.StudentParentName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.StudentGender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.StudentGender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.StudentAge)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.StudentAge)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.School)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.School)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.Grade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.Grade)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.Religion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.Religion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.EthinicGroup)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.EthinicGroup)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.ParentalMaritalStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.ParentalMaritalStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.FatherEdulevel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.FatherEdulevel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.MotherEdulevel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.MotherEdulevel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.FatherOccupation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.FatherOccupation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.MotherOccupation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.MotherOccupation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.MonthlyIncome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.MonthlyIncome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.AnnualIncome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.AnnualIncome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.DeviceOwnership)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.DeviceOwnership)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.FrequencySub)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.FrequencySub)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.ModulePercentage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.ModulePercentage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.AnswerBrief)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.AnswerBrief)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.student.FinalGrade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.student.FinalGrade)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="student.StudentID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

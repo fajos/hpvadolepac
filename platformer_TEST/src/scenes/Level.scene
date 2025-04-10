@@ -1,0 +1,449 @@
+{
+    "id": "3df0e979-baac-42ed-8869-c98af27298bb",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapWidth": 40,
+        "snapHeight": 40,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Level",
+        "borderWidth": 288,
+        "borderHeight": 192
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "4ecbf8e1-51dd-495f-b3cd-52f8afbef113",
+            "label": "back_2",
+            "texture": {
+                "key": "back"
+            },
+            "x": 577,
+            "y": 1,
+            "scaleX": 0.14499182430378013,
+            "scaleY": 0.20015256639156226,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "c14d40fb-a579-43b5-b298-2b88a670698d",
+            "label": "back_1",
+            "texture": {
+                "key": "back"
+            },
+            "x": 289,
+            "scaleX": 0.14499182430378013,
+            "scaleY": 0.20015256639156226,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "ce95fcfd-f3e5-4863-a25a-a673d2ff28f8",
+            "label": "back_3",
+            "texture": {
+                "key": "back"
+            },
+            "x": 834,
+            "y": 1,
+            "scaleX": 0.14499182430378013,
+            "scaleY": 0.20015256639156226,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "591bf6c1-a173-45aa-ae98-36939c8a7cba",
+            "label": "image_1",
+            "texture": {
+                "key": "underground"
+            },
+            "x": 460,
+            "y": 284,
+            "scaleX": 0.3,
+            "scaleY": 0.1
+        },
+        {
+            "type": "Image",
+            "id": "7b7733f3-d3f6-486c-85a2-c8b3c5ef2fec",
+            "label": "back1",
+            "texture": {
+                "key": "back"
+            },
+            "scaleX": 0.14499182430378013,
+            "scaleY": 0.20015256639156226,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "TilemapLayer",
+            "id": "c57f7353-17d6-4012-83ac-fda50242ba7b",
+            "label": "layer",
+            "scope": "CLASS",
+            "tilemapId": "64b3ab7d-c3f8-4f4a-89be-421a17f9d776",
+            "layerName": "Tile Layer 1",
+            "tilesets": [
+                "tileset"
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "bbb36026-9c0c-44a0-a5dc-a5b6b4293084",
+            "label": "tree",
+            "texture": {
+                "key": "atlas-props",
+                "frame": "tree"
+            },
+            "x": 496,
+            "y": 67,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "24150a21-1d84-4fd5-8076-4c7facf9e03f",
+            "label": "bush",
+            "texture": {
+                "key": "atlas-props",
+                "frame": "bush"
+            },
+            "x": 160,
+            "y": 132,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "1a926bab-9455-41fe-9939-e74349dcf352",
+            "label": "sign",
+            "texture": {
+                "key": "atlas-props",
+                "frame": "sign"
+            },
+            "x": 176,
+            "y": 300,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "3110c623-9695-423b-bfdc-83215f668fdc",
+            "label": "skulls",
+            "texture": {
+                "key": "atlas-props",
+                "frame": "skulls"
+            },
+            "x": 240,
+            "y": 310,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "19b8fec1-f047-4e4d-8d81-98dcfb8d8a8f",
+            "label": "face_block",
+            "texture": {
+                "key": "atlas-props",
+                "frame": "face-block"
+            },
+            "x": 368,
+            "y": 304,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "9298bfc8-b8d9-4867-95f0-cb6eb41ed428",
+            "label": "shrooms",
+            "texture": {
+                "key": "atlas-props",
+                "frame": "shrooms"
+            },
+            "x": 448,
+            "y": 320,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "0d37a3d6-fa24-4ea7-b993-3e5eab3a47ca",
+            "label": "back",
+            "texture": {},
+            "x": 289,
+            "y": -3,
+            "scaleX": 0.07550363856545386,
+            "scaleY": 0.07880306207447269,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "1cdb49c9-120c-4489-8e20-9f306edac69f",
+            "label": "quiz2",
+            "hitArea.shape": "CIRCLE",
+            "hitArea.x": 78,
+            "hitArea.y": 78.5,
+            "hitArea.radius": 78,
+            "texture": {
+                "key": "quiz"
+            },
+            "x": 324,
+            "y": 146,
+            "scaleX": 0.1,
+            "scaleY": 0.1
+        },
+        {
+            "type": "Sprite",
+            "id": "e36c4c5e-8c30-43fa-a663-8b23bf964ce5",
+            "label": "quiz",
+            "hitArea.shape": "CIRCLE",
+            "hitArea.x": 78,
+            "hitArea.y": 78.5,
+            "hitArea.radius": 78,
+            "texture": {
+                "key": "quiz"
+            },
+            "x": 228,
+            "y": 142,
+            "scaleX": 0.1,
+            "scaleY": 0.1
+        },
+        {
+            "type": "Sprite",
+            "id": "1d6f6fc2-a2da-4b50-bbe1-74dd84b59ca5",
+            "label": "virus",
+            "hitArea.shape": "CIRCLE",
+            "hitArea.x": 119,
+            "hitArea.y": 121,
+            "hitArea.radius": 93.97336314597726,
+            "texture": {
+                "key": "virus"
+            },
+            "x": 262,
+            "y": 139,
+            "scaleX": 0.2,
+            "scaleY": 0.2
+        },
+        {
+            "type": "Sprite",
+            "id": "addc705a-5952-4662-a86c-58db91c7c611",
+            "label": "vaccine_center",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.x": 71,
+            "hitArea.y": 76,
+            "hitArea.width": 837.1802750319632,
+            "hitArea.height": 422.532434697923,
+            "texture": {
+                "key": "Vaccine_centre_icon"
+            },
+            "x": 813,
+            "y": 110,
+            "scaleX": 0.2,
+            "scaleY": 0.2
+        },
+        {
+            "prefabId": "2bdd30b0-e379-4943-9d6b-ed6cb2ba5b0a",
+            "id": "23ff743e-5a53-4dc0-9363-51ee5bffea8d",
+            "unlock": [
+                "flipX",
+                "flipY",
+                "x",
+                "y",
+                "texture"
+            ],
+            "label": "player",
+            "scope": "CLASS",
+            "texture": {},
+            "x": 68,
+            "y": 121,
+            "flipX": true,
+            "flipY": false
+        },
+        {
+            "type": "Image",
+            "id": "87131438-7363-4eb8-9b9e-391f7cf70d4f",
+            "label": "jump_button",
+            "scope": "CLASS",
+            "texture": {
+                "key": "jump-button"
+            },
+            "x": 262,
+            "y": 170,
+            "scaleX": 0.39899614692006335,
+            "scaleY": 0.39899614692006335,
+            "visible": false,
+            "tintTopLeft": "#fdb5b5",
+            "list": [
+                {
+                    "prefabId": "a3580bf6-919a-468a-addd-4f8f573f9b96",
+                    "id": "08a08d26-2cf6-4018-b1fe-845dc62a4ec7",
+                    "label": "controllerJump",
+                    "scope": "CLASS"
+                },
+                {
+                    "prefabId": "63bd4c20-a9a7-478a-a031-5d0027804b88",
+                    "id": "726b9adc-3485-4944-a302-47b3dbecb0dc",
+                    "label": "fixedToCameraScript"
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "072e927f-2f06-44b4-abbb-2e734eef6ccc",
+            "label": "right_button",
+            "scope": "CLASS",
+            "components": [
+                "ScrollFactorX"
+            ],
+            "texture": {
+                "key": "right-button"
+            },
+            "x": 70,
+            "y": 170,
+            "scaleX": 0.39899614692006335,
+            "scaleY": 0.39899614692006335,
+            "tintTopLeft": "#fdb5b5",
+            "list": [
+                {
+                    "prefabId": "a3580bf6-919a-468a-addd-4f8f573f9b96",
+                    "id": "6b36b207-6587-4505-a323-7e1075f17d85",
+                    "label": "controllerRight",
+                    "scope": "CLASS"
+                },
+                {
+                    "prefabId": "63bd4c20-a9a7-478a-a031-5d0027804b88",
+                    "id": "3094bae4-2ca7-409f-933f-0abaa8dc915e",
+                    "label": "fixedToCameraScript_1"
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "8ea69e25-13f3-42a9-8536-777c09ee9d13",
+            "label": "left_button",
+            "scope": "CLASS",
+            "components": [
+                "ScrollFactorX"
+            ],
+            "texture": {
+                "key": "left-button"
+            },
+            "x": 26,
+            "y": 170,
+            "scaleX": 0.39899614692006335,
+            "scaleY": 0.39899614692006335,
+            "tintTopLeft": "#fdb5b5",
+            "list": [
+                {
+                    "prefabId": "a3580bf6-919a-468a-addd-4f8f573f9b96",
+                    "id": "4933f3da-7ed9-4edb-a3a7-b6b72a8c8ba9",
+                    "label": "controllerLeft",
+                    "scope": "CLASS"
+                },
+                {
+                    "prefabId": "63bd4c20-a9a7-478a-a031-5d0027804b88",
+                    "id": "5ec03c78-43d5-4a5a-ad01-0c1e4e5e7e1b",
+                    "label": "fixedToCameraScript_2"
+                }
+            ]
+        }
+    ],
+    "plainObjects": [
+        {
+            "id": "64b3ab7d-c3f8-4f4a-89be-421a17f9d776",
+            "type": "Tilemap",
+            "label": "map",
+            "key": "map",
+            "tilesets": [
+                {
+                    "name": "tileset",
+                    "imageKey": "tileset"
+                }
+            ]
+        },
+        {
+            "id": "42344ac5-f882-4b25-805a-5409091931ab",
+            "type": "Collider",
+            "label": "colliderPlayerVsLayer",
+            "scope": "METHOD",
+            "object1": "player",
+            "object2": "layer"
+        },
+        {
+            "id": "12bbe5cd-7093-4791-951a-3d27c3207c97",
+            "type": "Collider",
+            "label": "colliderEnemiesVsLayer",
+            "scope": "METHOD",
+            "object1": "enemies",
+            "object2": "layer"
+        },
+        {
+            "id": "89d53cdc-e0f4-4703-997c-3189b33f192c",
+            "type": "Collider",
+            "label": "overlapPlayerVsItems",
+            "scope": "METHOD",
+            "object1": "player",
+            "object2": "items",
+            "overlapOnly": true,
+            "collideCallback": "this.pickItem",
+            "callbackContext": "this"
+        },
+        {
+            "id": "9aacf202-4234-46ae-aba0-fd1def7413a8",
+            "type": "Collider",
+            "label": "overlapPlayerVsEnemies",
+            "scope": "METHOD",
+            "object1": "player",
+            "object2": "enemies",
+            "overlapOnly": true,
+            "processCallback": "this.checkAgainstEnemies",
+            "callbackContext": "this"
+        },
+        {
+            "id": "0a88375e-1229-4266-867a-1064ea42d333",
+            "type": "Keyboard.Key",
+            "label": "spaceKey"
+        },
+        {
+            "id": "c491690a-6458-4807-a19f-fe1763d1b327",
+            "type": "Keyboard.Key",
+            "label": "leftKey",
+            "keyCode": "LEFT"
+        },
+        {
+            "id": "86c00e99-0eeb-4d36-a14e-1ac1b2b76843",
+            "type": "Keyboard.Key",
+            "label": "rightKey",
+            "keyCode": "RIGHT"
+        },
+        {
+            "id": "be425e28-398e-44cf-9ee2-8e97810efd3a",
+            "type": "Keyboard.Key",
+            "label": "upKey",
+            "keyCode": "UP"
+        },
+        {
+            "id": "69a1571e-7dad-41b7-97d7-521addd8229e",
+            "type": "Keyboard.Key",
+            "label": "downKey",
+            "keyCode": "DOWN"
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "857604e9-0ca1-4631-b184-9aa0ec1f0bd6",
+            "label": "items"
+        },
+        {
+            "id": "36d1f7bd-ebfa-45e7-8647-b437c899c76e",
+            "label": "enemies"
+        }
+    ]
+}

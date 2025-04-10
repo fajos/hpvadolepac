@@ -1,0 +1,61 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Admin.EditTest.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TestQuestions</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestQuestions.TestQuestion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestQuestions.TestQuestion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestQuestions.TestQuestionOption1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestQuestions.TestQuestionOption1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestQuestions.TestQuestionOption2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestQuestions.TestQuestionOption2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestQuestions.TestQuestionOption3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestQuestions.TestQuestionOption3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestQuestions.TestQuestionOption4)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestQuestions.TestQuestionOption4)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestQuestions.CorrectOption)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestQuestions.CorrectOption)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TestQuestions.Feedback)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TestQuestions.Feedback)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TestQuestions?.TestQuestionID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

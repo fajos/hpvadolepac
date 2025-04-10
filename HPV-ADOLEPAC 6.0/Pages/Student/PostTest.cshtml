@@ -1,0 +1,200 @@
+﻿@page
+@model HPV_ADOLEPAC_6._0.Pages.Student.PostTestModel
+@{
+    ViewData["Title"] = "Post-Test";
+}
+
+<style>
+    .form-container {
+        /*background-color: #fff;*/
+        padding: 20px;
+        border-radius: 25px;
+        border-color: brown;
+        max-width: 1500px;
+        width: 100%;
+    }
+
+    form h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 30px;
+    }
+
+        .form-group label {
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+            .form-group input:focus,
+            .form-group textarea:focus {
+                border-color: #007BFF;
+                outline: none;
+            }
+
+    button {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+
+    .custom-radio-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .custom-radio {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-left: 30px;
+        cursor: pointer;
+        font-size: 16px;
+        user-select: none;
+    }
+
+        .custom-radio input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .custom-radio span {
+            margin-left: 10px;
+            color: #666;
+        }
+
+        .custom-radio input:checked ~ span::before {
+            background-color: #007BFF;
+            border-color: #007BFF;
+        }
+
+        .custom-radio span::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            box-sizing: border-box;
+            transition: all 0.3s;
+        }
+
+        .custom-radio input:checked ~ span::after {
+            display: block;
+        }
+
+        .custom-radio span::after {
+            content: "";
+            position: absolute;
+            left: 7px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            display: none;
+            width: 6px;
+            height: 12px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+        }
+
+</style>
+<body>
+    <header>
+        <h1>Post-Test</h1>
+    </header>
+
+    <div class="form-container">
+
+
+        <form method="post">
+
+            @for (int i = 0; i < Model.Answers.Count; i++)
+            {
+                <p>@Model.Answers[i].PostTestQuestions.PostTestQuestion</p>
+
+                <div class="form-group">
+                    <label type="hidden" asp-for="PostTestAnswers[i].Answer" class="control-label"></label>
+                    <div class="custom-radio-group">
+
+                        @*default value = " " *@
+                        <input style="visibility:hidden; display: none;" type="radio" asp-for="PostTestAnswers[i].Answer" value=" " checked />
+                        <label class="custom-radio">
+                            <input type="radio" asp-for="PostTestAnswers[i].Answer" value="@Model.Answers[i].PostTestQuestions.PostTestQuestionOption1" />
+                            <span>@Model.Answers[i].PostTestQuestions.PostTestQuestionOption1</span>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" asp-for="PostTestAnswers[i].Answer" value="@Model.Answers[i].PostTestQuestions.PostTestQuestionOption2" />
+                            <span>@Model.Answers[i].PostTestQuestions.PostTestQuestionOption2</span>
+                        </label>
+                        @if (Model.Answers[i].PostTestQuestions.PostTestQuestionOption3 != null)
+                        {
+                            <label class="custom-radio">
+                                <input type="radio" asp-for="PostTestAnswers[i].Answer" value="@Model.Answers[i].PostTestQuestions.PostTestQuestionOption3" />
+                                <span>@Model.Answers[i].PostTestQuestions.PostTestQuestionOption3</span>
+                            </label>
+                        }
+                        @if (Model.Answers[i].PostTestQuestions.PostTestQuestionOption4 != null)
+                        {
+                            <label class="custom-radio">
+                                <input type="radio" asp-for="PostTestAnswers[i].Answer" value="@Model.Answers[i].PostTestQuestions.PostTestQuestionOption4" />
+                                <span>@Model.Answers[i].PostTestQuestions.PostTestQuestionOption4</span>
+                            </label>
+                        }
+                        @if (Model.Answers[i].PostTestQuestions.PostTestQuestionOption5 != null)
+                        {
+                            <label class="custom-radio">
+                                <input type="radio" asp-for="PostTestAnswers[i].Answer" value="@Model.Answers[i].PostTestQuestions.PostTestQuestionOption5" />
+                                <span>@Model.Answers[i].PostTestQuestions.PostTestQuestionOption5</span>
+                            </label>
+                        }
+                    </div>
+
+                    <span asp-validation-for="PostTestAnswers[i].Answer" class="text-danger"></span>
+
+
+                </div>
+
+            }
+
+
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+
+        </form>
+
+
+
+    </div>
+
+</body>

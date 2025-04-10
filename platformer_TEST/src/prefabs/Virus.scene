@@ -1,0 +1,32 @@
+{
+    "id": "3c61362f-d0b0-4a11-b3f3-6f49556ef484",
+    "sceneType": "PREFAB",
+    "settings": {
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 288,
+        "borderHeight": 192
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "49569c00-ff6c-417b-b60c-9702db35d743",
+            "label": "sprite_1",
+            "texture": {
+                "key": "virus"
+            },
+            "x": 76,
+            "y": 31,
+            "scaleX": 0.2,
+            "scaleY": 0.2
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}
