@@ -96,15 +96,19 @@ class TitleScreen extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	create() {
+  this.editorCreate();
 
-		this.editorCreate();
+  // ——— fire our “title_screen_shown” analytics event ———
+  window.parent.postMessage(
+    { event: 'title_screen_shown', scene: 'TitleScreen' },
+    '*'  // you can replace '*' with your app’s origin for extra safety
+  );
 
-		this.input.keyboard.on("keydown-ENTER", this.enterPressed, this);
-		this.input.on("pointerdown", this.enterPressed, this);
+  this.input.keyboard.on("keydown-ENTER", this.enterPressed, this);
+  this.input.on("pointerdown", this.enterPressed, this);
 
-		this.blinkText();
-	}
-
+  this.blinkText();
+}
 	enterPressed() {
 
 		if (this.title_screen.visible) {
