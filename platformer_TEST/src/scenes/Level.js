@@ -314,38 +314,63 @@ class Level extends Phaser.Scene {
 	}
 	
 	startQuiz = (player, quiz) => {
-		this.scene.launch('quiz1');
-		quiz.destroy();
-		this.scene.pause();
-	}
+  		window.parent.postMessage(
+    		{ event: 'retry', level: 'level1', attempt: ++this.currentAttempt },
+    		'*'
+ 		 );
+
+  		this.scene.launch('quiz1');
+  		quiz.destroy();
+  		this.scene.pause();
+		}
 	
 	startQuiz2 = (player, quiz2) => {
+		window.parent.postMessage(
+    		{ event: 'retry', level: 'level2', attempt: ++this.currentAttempt },
+    		'*'
+ 		 );
 		this.scene.launch('quiz2');
 		quiz2.destroy();
 		this.scene.pause();
 	}
 	
 	startQuiz3 = (player, quiz3) => {
+		window.parent.postMessage(
+    		{ event: 'retry', level: 'level3', attempt: ++this.currentAttempt },
+    		'*'
+ 		 );
 		this.scene.launch('quiz3');
 		quiz3.destroy();
 		this.scene.pause();
 	}
 	
 	startQuiz4 = (player, quiz4) => {
+		window.parent.postMessage(
+    		{ event: 'retry', level: 'level4', attempt: ++this.currentAttempt },
+    		'*'
+ 		 );
 		this.scene.launch('quiz4');
 		quiz4.destroy();
 		this.scene.pause();
 	}
 	
 	startQuiz5 = (player, quiz5) => {
+		window.parent.postMessage(
+    		{ event: 'retry', level: 'level5', attempt: ++this.currentAttempt },
+    		'*'
+ 		 );
 		this.scene.launch('quiz5');
 		quiz5.destroy();
 		this.scene.pause();
 	}
 	
 	winGame = () => {
-		this.scene.start('GameWin');
-	}
+  		window.parent.postMessage(
+    		{ event: 'completed', level: 'level1', attempt: this.currentAttempt },
+    		'*'
+  		);
+  		this.scene.start('GameWin');
+		}
 
 	movePlayer() {
 
