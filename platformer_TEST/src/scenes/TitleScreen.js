@@ -98,6 +98,12 @@ class TitleScreen extends Phaser.Scene {
 	create() {
   this.editorCreate();
 
+  // —— fire “first screen shown” —— 
+  window.parent.postMessage(
+    { event: 'title_screen_shown', level: 'title', attempt: 0 },
+    '*' 
+  );
+
   this.input.keyboard.on("keydown-ENTER", this.enterPressed, this);
   this.input.on("pointerdown", this.enterPressed, this);
 
