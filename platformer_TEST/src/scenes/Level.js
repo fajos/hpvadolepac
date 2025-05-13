@@ -276,7 +276,7 @@ class Level extends Phaser.Scene {
   		this.editorCreate();
 
   		// 1) init attempt counter
-  		this.currentAttempt = 1;
+  		this.currentAttempt = 0;
 
   		// 2) record level start
   		window.parent.postMessage(
