@@ -96,9 +96,14 @@ class quiz1 extends Phaser.Scene {
 		this.editorCreate();
 	}
 	
-	lose = () => {
-		this.scene.start("GameOver");
-	}
+	 lose = () => {
+   		window.parent.postMessage(
+		     { event: 'retry', level: 'level1', attempt: this.scene.get('Level').currentAttempt },
+     			'*'
+   		);
+
+    		this.scene.start("GameOver");
+		}
 	
 	continue = () => {
 		this.scene.resume("Level");
