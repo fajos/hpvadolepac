@@ -267,13 +267,25 @@ class Level extends Phaser.Scene {
 	items;
 	/** @type {Array<any>} */
 	enemies;
+	 /** @type {number} */
+  	currentAttempt;
 
 	/* START-USER-CODE */
 
 	create() {
-		this.editorCreate();
-		this.initColliders();
-		this.initCamera();
+  		this.editorCreate();
+
+  		// 1) init attempt counter
+  		this.currentAttempt = 1;
+
+  		// 2) record level start
+  		window.parent.postMessage(
+    		{ event: 'level_started', level: 'level1', attempt: this.currentAttempt },
+    		'*'
+  		);
+
+  		this.initColliders();
+ 		this.initCamera();
 	}
 
 	initCamera() {
