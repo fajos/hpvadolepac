@@ -106,8 +106,19 @@ class quiz5 extends Phaser.Scene {
 		}
 	
 	continue = () => {
-		this.scene.resume("Level");
-		this.scene.stop();
+  	// reset the attempt counter in Level
+  		const level = this.scene.get("Level");
+  		level.currentAttempt = 1;
+
+  	// tell the parent we’ve started level6
+  		window.parent.postMessage(
+    	{ event: 'level_started', level: 'level6', attempt: 1 },
+    	'*'
+  	);
+
+  	// resume & close
+  	this.scene.resume("Level");
+  	this.scene.stop();
 	}
 
 	/* END-USER-CODE */
