@@ -97,6 +97,8 @@ class quiz5 extends Phaser.Scene {
 	}
 	
 	lose = () => {
+		const lvl = this.scene.get("Level");
+  		lvl.currentAttempt++;
    		window.parent.postMessage(
 		     { event: 'retry', level: 'level5', attempt: this.scene.get('Level').currentAttempt },
      			'*'
@@ -107,12 +109,12 @@ class quiz5 extends Phaser.Scene {
 	
 	continue = () => {
   	// reset the attempt counter in Level
-  		const level = this.scene.get("Level");
-  		level.currentAttempt = 1;
+  		const lvl = this.scene.get("Level");
+  		lvl.currentAttempt = 0;
 
   	// tell the parent we’ve started level6
   		window.parent.postMessage(
-    	{ event: 'level_started', level: 'level6', attempt: 1 },
+    	{ event: 'level_started', level: 'level6', attempt: 0 },
     	'*'
   	);
 
