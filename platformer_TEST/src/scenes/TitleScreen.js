@@ -98,24 +98,6 @@ class TitleScreen extends Phaser.Scene {
 	create() {
   this.editorCreate();
 
- // first screen shown
-		window.parent.postMessage(
-			{ event: 'title_screen_shown', level: 'title', attempt: 0 },
-			'*'
-		);
-
-		// when user fails a question:
-		window.parent.postMessage(
-			{ event: 'retry', level: 'level1', attempt: currentAttempt },
-			'*'
-		);
-
-		// when user completes the level:
-		window.parent.postMessage(
-			{ event: 'completed', level: 'level1', attempt: currentAttempt },
-			'*'
-		);
-
   this.input.keyboard.on("keydown-ENTER", this.enterPressed, this);
   this.input.on("pointerdown", this.enterPressed, this);
 
