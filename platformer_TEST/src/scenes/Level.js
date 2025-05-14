@@ -3,15 +3,17 @@
 
 /* START OF COMPILED CODE */
 
-const QUIZ_KEYS = ["quiz1","quiz2","quiz3","quiz4","quiz5"];
+const QUIZ_KEYS  = ["quiz1","quiz2","quiz3","quiz4","quiz5"];
+const MAX_INDEX  = QUIZ_KEYS.length - 1;
 
 class Level extends Phaser.Scene {
 
-	constructor() {
-		super("Level");
-		this.currentQuiz    = "quiz1";
-  		this.currentAttempt = 0; 
-	}
+	constructor () {
+    		super("Level");
+    		this.currentQuizIndex = 0;
+    		this.currentAttempt   = 0;
+		this.levelWinLogged   = false;
+  	}
 
 	/** @returns {void} */
 	editorCreate() {
@@ -279,6 +281,7 @@ class Level extends Phaser.Scene {
 	create() {
     		this.currentAttempt   = 0;        // first try = 0 again
   		this.currentQuizIndex = 0;        // quiz1 is first again
+		this.levelWinLogged   = false;
 
     		this.editorCreate();
     		this.initColliders();
@@ -309,39 +312,53 @@ class Level extends Phaser.Scene {
 		cam.scrollY = row * cam.height;
 	}
 	
-	startQuiz = (player, q) => { this.launchQuiz("quiz1", q); };
-  	startQuiz2 = (player, q) => { this.launchQuiz("quiz2", q); };
- 		startQuiz3 = (player, q) => { this.launchQuiz("quiz3", q); };
-  	startQuiz4 = (player, q) => { this.launchQuiz("quiz4", q); };
-  	startQuiz5 = (player, q) => { this.launchQuiz("quiz5", q); };
+	startQuiz  = (p,b) => this.launchQuiz(0,b);   // quiz1
+  	startQuiz2 = (p,b) => this.launchQuiz(1,b);   // quiz2
+  	startQuiz3 = (p,b) => this.launchQuiz(2,b);   // quiz3
+  	startQuiz4 = (p,b) => this.launchQuiz(3,b);   // quiz4
+  	startQuiz5 = (p,b) => this.launchQuiz(4,b);   // quiz5
 
-  	launchQuiz(key, bubble){
-    		this.scene.launch(key);
+
+  	launchQuiz(idx, bubble) {
+
+   	 /*  bump attempt counter only on failures  */
+    		this.currentAttempt = idx === this.currentQuizIndex
+                            ? this.currentAttempt   // first go
+                            : 0;                    // fresh quiz, reset
+
+    		this.currentQuizIndex = idx;     // keep scene in sync
+    		this.scene.launch(QUIZ_KEYS[idx]);
     		bubble.destroy();
     		this.scene.pause();
- 		 }
+  	}
 	
 	winGame = () => {
 
-    const quizKey = QUIZ_KEYS[this.currentQuizIndex];
+    	const quizKey = QUIZ_KEYS[this.currentQuizIndex];
 
-    if (!this.levelWinLogged) {
+    	if (!this.levelWinLogged) {
+      		window.parent.postMessage(
+       		{ event: 'level_completed',
+          	level: quizKey,
+          	attemptNumber: this.currentAttempt },
+        	'*');
+      	this.levelWinLogged = true;
+    	}
+
+    	/* advance to next quiz, but never beyond quiz5 */
+    this.currentQuizIndex =
+        this.currentQuizIndex < MAX_INDEX
+        ? this.currentQuizIndex + 1
+        : MAX_INDEX;
+
+    /* overall completion (optional) */
+    if (this.currentQuizIndex === MAX_INDEX) {
       window.parent.postMessage(
-        { event: 'level_completed',
-          level: quizKey,
+        { event: 'completed',
+          level: 'game',
           attemptNumber: this.currentAttempt },
         '*');
-      this.levelWinLogged = true;
     }
-
-    this.currentQuizIndex++;
-
-    /* overall completion, optional */
-    window.parent.postMessage(
-      { event: 'completed',
-        level: 'game',
-        attemptNumber: this.currentAttempt },
-      '*');
 
     this.scene.start("GameWin");
   };
