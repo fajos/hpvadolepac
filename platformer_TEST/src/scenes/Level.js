@@ -321,16 +321,26 @@ class Level extends Phaser.Scene {
 
   	launchQuiz(idx, bubble) {
 
-   	 /*  bump attempt counter only on failures  */
-    		this.currentAttempt = idx === this.currentQuizIndex
-                            ? this.currentAttempt   // first go
-                            : 0;                    // fresh quiz, reset
+  /* bump attempt number only when the SAME quiz is restarted */
+  if (idx === this.currentQuizIndex) {
+      this.currentAttempt += 1;
+  } else {
+      this.currentQuizIndex = idx;
+      this.currentAttempt   = 0;    // fresh quiz ⇒ attempts start at 0
+  }
 
-    		this.currentQuizIndex = idx;     // keep scene in sync
-    		this.scene.launch(QUIZ_KEYS[idx]);
-    		bubble.destroy();
-    		this.scene.pause();
-  	}
+  /* ---- send RETRY event ---------------------------------- */
+  window.parent.postMessage(
+    { event: 'retry',
+      level: QUIZ_KEYS[this.currentQuizIndex],
+      attemptNumber: this.currentAttempt },
+    '*');
+
+  /* show quiz scene ---------------------------------------- */
+  this.scene.launch(QUIZ_KEYS[idx]);
+  bubble.destroy();
+  this.scene.pause();
+}
 	
 	winGame = () => {
 
