@@ -340,12 +340,26 @@ class Level extends Phaser.Scene {
 	}
 	
 	winGame = () => {
-  		window.parent.postMessage(
-    		{ event: "completed", level: "game", attempt: 0 },
-    		"*"
-  		);
-  		this.scene.start("GameWin");
-		};
+
+  /* 1. log quiz win only the FIRST time */
+  if (!this.levelWinLogged) {              // --- guard
+    window.parent.postMessage({
+      event: 'level_completed',
+      level: this.levelKey,                // "quiz1" .. "quiz5"
+      attemptNumber: this.currentAttempt
+    }, '*');
+    this.levelWinLogged = true;
+  }
+
+  /* 2. log overall game completion (optional) */
+  window.parent.postMessage({
+     event: 'completed',
+     level: 'game',
+     attemptNumber: this.currentAttempt
+  }, '*');
+
+  this.scene.start('GameWin');
+};
 
 
 	movePlayer() {
