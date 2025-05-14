@@ -7,20 +7,9 @@ class Level extends Phaser.Scene {
 
 	constructor() {
 		super("Level");
+		this.currentQuiz    = "quiz1";
+  		this.currentAttempt = 0; 
 	}
-
-	init(data) {
-        // The first scene.start passes { levelKey: "level1" }.
-        // Every quiz "continue" passes the next level key.
-        this.levelKey = data.levelKey || "level1";   // default if none supplied
-        this.currentAttempt = 0;                     // first try = 0
-
-        // Tell parent page a new level is beginning
-        window.parent.postMessage(
-            { event: 'level_started', level: this.levelKey, attempt: 0 },
-            '*'
-        );
-    }
 
 	/** @returns {void} */
 	editorCreate() {
@@ -286,13 +275,10 @@ class Level extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	create() {
-    		this.currentAttempt = 0;             // first try = 0
-
-   		 // tell the parent a new level has begun
     		window.parent.postMessage(
-     		 { event: 'level_started', level: this.levelKey, attempt: 0 },
-      		'*'
-    		);
+  		{ event: "level_started", level: this.currentQuiz, attempt: 0 },
+ 		"*"
+		);
 
     		this.editorCreate();
     		this.initColliders();
