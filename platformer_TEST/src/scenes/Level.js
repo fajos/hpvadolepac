@@ -341,13 +341,12 @@ class Level extends Phaser.Scene {
 	}
 	
 	winGame = () => {
-		const lvl = this.scene.get('Level');
   		window.parent.postMessage(
-    		{ event: 'completed', level: 'level1', attempt: lvl.currentAttempt },
+   		{ event: 'completed', level: this.levelKey, attempt: this.currentAttempt },
     		'*'
-  		);
+ 	 	);
   		this.scene.start('GameWin');
-		}
+		};
 
 	movePlayer() {
 
