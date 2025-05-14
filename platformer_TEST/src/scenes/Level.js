@@ -365,8 +365,9 @@ class Level extends Phaser.Scene {
 	}
 	
 	winGame = () => {
+		const lvl = this.scene.get('Level');
   		window.parent.postMessage(
-    		{ event: 'completed', level: 'level1', attempt: this.currentAttempt },
+    		{ event: 'completed', level: 'level1', attempt: lvl.currentAttempt },
     		'*'
   		);
   		this.scene.start('GameWin');
