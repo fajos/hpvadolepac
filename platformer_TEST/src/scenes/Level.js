@@ -273,21 +273,18 @@ class Level extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	create() {
-  		this.editorCreate();
+    		this.currentAttempt = 0;             // first try = 0
 
-  		// 1) init attempt counter
-  		this.currentAttempt = 0;
+   		 // tell the parent a new level has begun
+    		window.parent.postMessage(
+     		 { event: 'level_started', level: this.levelKey, attempt: 0 },
+      		'*'
+    		);
 
-  		// 2) record level start
-  		window.parent.postMessage(
-    		{ event: 'level_started', level: 'level1', attempt: this.currentAttempt },
-    		'*'
-  		);
-
-  		this.initColliders();
- 		this.initCamera();
-	}
-
+    		this.editorCreate();
+    		this.initColliders();
+    		this.initCamera();
+		  }
 	initCamera() {
 
 		const cam = this.cameras.main;
@@ -314,51 +311,30 @@ class Level extends Phaser.Scene {
 	}
 	
 	startQuiz = (player, quiz) => {
-  		window.parent.postMessage(
-    		{ event: 'retry', level: 'level1', attempt: ++this.currentAttempt },
-    		'*'
- 		 );
-
   		this.scene.launch('quiz1');
   		quiz.destroy();
   		this.scene.pause();
 		}
 	
 	startQuiz2 = (player, quiz2) => {
-		window.parent.postMessage(
-    		{ event: 'retry', level: 'level2', attempt: ++this.currentAttempt },
-    		'*'
- 		 );
 		this.scene.launch('quiz2');
 		quiz2.destroy();
 		this.scene.pause();
 	}
 	
 	startQuiz3 = (player, quiz3) => {
-		window.parent.postMessage(
-    		{ event: 'retry', level: 'level3', attempt: ++this.currentAttempt },
-    		'*'
- 		 );
 		this.scene.launch('quiz3');
 		quiz3.destroy();
 		this.scene.pause();
 	}
 	
 	startQuiz4 = (player, quiz4) => {
-		window.parent.postMessage(
-    		{ event: 'retry', level: 'level4', attempt: ++this.currentAttempt },
-    		'*'
- 		 );
 		this.scene.launch('quiz4');
 		quiz4.destroy();
 		this.scene.pause();
 	}
 	
 	startQuiz5 = (player, quiz5) => {
-		window.parent.postMessage(
-    		{ event: 'retry', level: 'level5', attempt: ++this.currentAttempt },
-    		'*'
- 		 );
 		this.scene.launch('quiz5');
 		quiz5.destroy();
 		this.scene.pause();
