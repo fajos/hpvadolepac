@@ -119,7 +119,7 @@ class TitleScreen extends Phaser.Scene {
 
 		} else {
 
-			this.startLevelAction.execute();
+			this.scene.start("Level", { levelKey: "level1" });
 		}
 	}
 
