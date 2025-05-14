@@ -275,10 +275,8 @@ class Level extends Phaser.Scene {
 	/* START-USER-CODE */
 
 	create() {
-    		window.parent.postMessage(
-  		{ event: "level_started", level: this.currentQuiz, attempt: 0 },
- 		"*"
-		);
+    		this.currentAttempt   = 0;        // first try = 0 again
+  		this.currentQuizIndex = 0;        // quiz1 is first again
 
     		this.editorCreate();
     		this.initColliders();
@@ -338,18 +336,22 @@ class Level extends Phaser.Scene {
 		quiz5.destroy();
 		this.scene.pause();
 	}
+
+	const QUIZ_KEYS = ["quiz1","quiz2","quiz3","quiz4","quiz5"];
 	
 	winGame = () => {
 
-  /* 1. log quiz win only the FIRST time */
-  if (!this.levelWinLogged) {              // --- guard
-    window.parent.postMessage({
-      event: 'level_completed',
-      level: this.levelKey,                // "quiz1" .. "quiz5"
-      attemptNumber: this.currentAttempt
-    }, '*');
-    this.levelWinLogged = true;
-  }
+  		const quizKey = QUIZ_KEYS[this.currentQuizIndex];
+
+  		if (!this.levelWinLogged) {
+     		   window.parent.postMessage(
+       			{ event: 'level_completed',
+         		level: quizKey,
+         		attemptNumber: this.currentAttempt },
+       		'*');
+     		this.levelWinLogged = true;
+  	}
+	this.currentQuizIndex++;
 
   /* 2. log overall game completion (optional) */
   window.parent.postMessage({
