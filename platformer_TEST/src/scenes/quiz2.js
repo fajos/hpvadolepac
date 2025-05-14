@@ -111,22 +111,18 @@ lose = () => {
 
 /* CORRECT ANSWER ------------------------------------- */
 continue = () => {
-  const lvl = this.scene.get("Level");
 
-  // mark this quiz as completed
+  /* ---- tell parent this quiz was beaten ------------------ */
   window.parent.postMessage(
-    { event: "level_completed", level: lvl.currentQuiz, attempt: lvl.currentAttempt },
-    "*"
-  );
+    { event: 'level_completed',
+      level: this.scene.key,          // "quiz1" / "quiz2" / …
+      attemptNumber: 0 },             // always 0 because you just won
+    '*');
 
-  // advance to next quiz
-  const nextIdx = parseInt(lvl.currentQuiz.replace("quiz","")) + 1;
-  lvl.currentQuiz    = `quiz${nextIdx}`;
-  lvl.currentAttempt = 0;
-
+  /* ---- return to the platform level ---------------------- */
   this.scene.resume("Level");
-  this.scene.stop();
-};
+  this.scene.stop();                  // close quiz popup
+}
 
 	/* END-USER-CODE */
 }
