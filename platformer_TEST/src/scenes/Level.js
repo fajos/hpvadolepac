@@ -321,51 +321,45 @@ class Level extends Phaser.Scene {
 
   	launchQuiz(idx, bubble) {
 
-  /* bump attempt number only when the SAME quiz is restarted */
-  if (idx === this.currentQuizIndex) {
+    /* bump attempt only when the SAME quiz restarts */
+    if (idx === this.currentQuizIndex) {
       this.currentAttempt += 1;
-  } else {
+    } else {
       this.currentQuizIndex = idx;
-      this.currentAttempt   = 0;    // fresh quiz ⇒ attempts start at 0
+      this.currentAttempt   = 0;
+    }
+
+    /* only *real* retries are logged */
+    if (this.currentAttempt > 0) {
+      window.parent.postMessage(
+        { event: 'retry',
+          level: QUIZ_KEYS[this.currentQuizIndex],
+          attemptNumber: this.currentAttempt },
+        '*');
+    }
+
+    bubble.destroy();
+    this.scene.launch(QUIZ_KEYS[idx]);     // show the quiz scene
+    this.scene.pause();                    // pause platformer
   }
-
-  // BEFORE – un-conditional
-window.parent.postMessage(
-  { event: 'retry',
-    level: QUIZ_KEYS[this.currentQuizIndex],
-    attemptNumber: this.currentAttempt },
-  '*');
-
-// AFTER – only real retries are logged
-if (this.currentAttempt > 0) {
-  window.parent.postMessage(
-    { event: 'retry',
-      level: QUIZ_KEYS[this.currentQuizIndex],
-      attemptNumber: this.currentAttempt },
-    '*');
-}
 	
 	winGame = () => {
 
-    	const quizKey = QUIZ_KEYS[this.currentQuizIndex];
+    const quizKey = QUIZ_KEYS[this.currentQuizIndex];
 
-    	if (!this.levelWinLogged) {
-      		window.parent.postMessage(
-       		{ event: 'level_completed',
-          	level: quizKey,
-          	attemptNumber: this.currentAttempt },
-        	'*');
-      	this.levelWinLogged = true;
-    	}
+    if (!this.levelWinLogged) {
+      window.parent.postMessage(
+        { event: 'level_completed',
+          level: quizKey,
+          attemptNumber: this.currentAttempt },
+        '*');
+      this.levelWinLogged = true;
+    }
 
-    	/* advance to next quiz, but never beyond quiz5 */
-    this.currentQuizIndex =
-        this.currentQuizIndex < MAX_INDEX
-        ? this.currentQuizIndex + 1
-        : MAX_INDEX;
-
-    /* overall completion (optional) */
-    if (this.currentQuizIndex === MAX_INDEX) {
+    /* advance index but never beyond last quiz */
+    if (this.currentQuizIndex < MAX_INDEX) {
+      this.currentQuizIndex += 1;
+    } else {
       window.parent.postMessage(
         { event: 'completed',
           level: 'game',
