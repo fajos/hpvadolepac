@@ -334,7 +334,7 @@ class Level extends Phaser.Scene {
       window.parent.postMessage(
         { event: 'retry',
           level: QUIZ_KEYS[this.currentQuizIndex],
-          attemptNumber: this.currentAttempt },
+          attempt      : this.currentAttempt },
         '*');
     }
 
@@ -351,7 +351,7 @@ class Level extends Phaser.Scene {
       window.parent.postMessage(
         { event: 'level_completed',
           level: quizKey,
-          attemptNumber: this.currentAttempt },
+          attempt      : this.currentAttempt },
         '*');
       this.levelWinLogged = true;
     }
@@ -363,7 +363,7 @@ class Level extends Phaser.Scene {
       window.parent.postMessage(
         { event: 'completed',
           level: 'game',
-          attemptNumber: this.currentAttempt },
+          attempt      : this.currentAttempt },
         '*');
     }
 
