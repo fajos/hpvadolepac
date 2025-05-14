@@ -91,37 +91,31 @@ class quiz2 extends Phaser.Scene {
 
 	// Write your code here
 
-	create() {
+	create() { this.editorCreate(); }
 
-		this.editorCreate();
-	}
-	
+	// ----- player fails this quiz -----
 	lose = () => {
-		const lvl = this.scene.get("Level");
-  		lvl.currentAttempt++;
-   		window.parent.postMessage(
-		     { event: 'retry', level: 'level2', attempt: this.scene.get('Level').currentAttempt },
-     			'*'
-   		);
-
-    		this.scene.start("GameOver");
-		}
-	
-	continue = () => {
-  	// reset the attempt counter in Level
   		const lvl = this.scene.get("Level");
-  		lvl.currentAttempt = 0;
+  		lvl.currentAttempt += 1;
 
-  	// tell the parent we’ve started level3
   		window.parent.postMessage(
-    	{ event: 'level_started', level: 'level3', attempt: 0 },
-    	'*'
-  	);
+    		{ event: 'retry', level: 'level2', attempt: lvl.currentAttempt },
+    		'*'
+  		);
 
-  	// resume & close
-  	this.scene.resume("Level");
-  	this.scene.stop();
-	}
+  	// restart the *same* level
+  		this.scene.stop("Level");
+  		this.scene.start("Level", { levelKey: "level2" });
+  		this.scene.stop();            // close quiz
+		};
+
+	// ----- player passes this quiz -----
+	continue = () => {
+  		// start next level fresh
+  		this.scene.stop("Level");
+  		this.scene.start("Level", { levelKey: "level3" });
+  		this.scene.stop();            // close quiz
+		};
 	/* END-USER-CODE */
 }
 
