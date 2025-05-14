@@ -3,6 +3,8 @@
 
 /* START OF COMPILED CODE */
 
+const QUIZ_KEYS = ["quiz1","quiz2","quiz3","quiz4","quiz5"];
+
 class Level extends Phaser.Scene {
 
 	constructor() {
@@ -307,62 +309,42 @@ class Level extends Phaser.Scene {
 		cam.scrollY = row * cam.height;
 	}
 	
-	startQuiz = (player, quiz) => {
-  		this.scene.launch('quiz1');
-  		quiz.destroy();
-  		this.scene.pause();
-		}
-	
-	startQuiz2 = (player, quiz2) => {
-		this.scene.launch('quiz2');
-		quiz2.destroy();
-		this.scene.pause();
-	}
-	
-	startQuiz3 = (player, quiz3) => {
-		this.scene.launch('quiz3');
-		quiz3.destroy();
-		this.scene.pause();
-	}
-	
-	startQuiz4 = (player, quiz4) => {
-		this.scene.launch('quiz4');
-		quiz4.destroy();
-		this.scene.pause();
-	}
-	
-	startQuiz5 = (player, quiz5) => {
-		this.scene.launch('quiz5');
-		quiz5.destroy();
-		this.scene.pause();
-	}
+	startQuiz = (player, q) => { this.launchQuiz("quiz1", q); };
+  	startQuiz2 = (player, q) => { this.launchQuiz("quiz2", q); };
+ 		startQuiz3 = (player, q) => { this.launchQuiz("quiz3", q); };
+  	startQuiz4 = (player, q) => { this.launchQuiz("quiz4", q); };
+  	startQuiz5 = (player, q) => { this.launchQuiz("quiz5", q); };
 
-	const QUIZ_KEYS = ["quiz1","quiz2","quiz3","quiz4","quiz5"];
+  	launchQuiz(key, bubble){
+    		this.scene.launch(key);
+    		bubble.destroy();
+    		this.scene.pause();
+ 		 }
 	
 	winGame = () => {
 
-  		const quizKey = QUIZ_KEYS[this.currentQuizIndex];
+    const quizKey = QUIZ_KEYS[this.currentQuizIndex];
 
-  		if (!this.levelWinLogged) {
-     		   window.parent.postMessage(
-       			{ event: 'level_completed',
-         		level: quizKey,
-         		attemptNumber: this.currentAttempt },
-       		'*');
-     		this.levelWinLogged = true;
-  	}
-	this.currentQuizIndex++;
+    if (!this.levelWinLogged) {
+      window.parent.postMessage(
+        { event: 'level_completed',
+          level: quizKey,
+          attemptNumber: this.currentAttempt },
+        '*');
+      this.levelWinLogged = true;
+    }
 
-  /* 2. log overall game completion (optional) */
-  window.parent.postMessage({
-     event: 'completed',
-     level: 'game',
-     attemptNumber: this.currentAttempt
-  }, '*');
+    this.currentQuizIndex++;
 
-  this.scene.start('GameWin');
-};
+    /* overall completion, optional */
+    window.parent.postMessage(
+      { event: 'completed',
+        level: 'game',
+        attemptNumber: this.currentAttempt },
+      '*');
 
+    this.scene.start("GameWin");
+  };
 
 	movePlayer() {
 
