@@ -93,29 +93,41 @@ class quiz2 extends Phaser.Scene {
 
 	create() { this.editorCreate(); }
 
-	// ----- player fails this quiz -----
-	lose = () => {
-  		const lvl = this.scene.get("Level");
-  		lvl.currentAttempt += 1;
+/* WRONG ANSWER --------------------------------------- */
+lose = () => {
+  const lvl = this.scene.get("Level");
+  lvl.currentAttempt += 1;
 
-  		window.parent.postMessage(
-    		{ event: 'retry', level: 'level2', attempt: lvl.currentAttempt },
-    		'*'
-  		);
+  window.parent.postMessage(
+    { event: "retry", level: lvl.currentQuiz, attempt: lvl.currentAttempt },
+    "*"
+  );
 
-  	// restart the *same* level
-  		this.scene.stop("Level");
-  		this.scene.start("Level", { levelKey: "level2" });
-  		this.scene.stop();            // close quiz
-		};
+  // restart the whole game scene, same quiz target
+  this.scene.stop("Level");
+  this.scene.start("Level");   // currentQuiz & attempt stay in Level singleton
+  this.scene.stop();
+};
 
-	// ----- player passes this quiz -----
-	continue = () => {
-  		// start next level fresh
-  		this.scene.stop("Level");
-  		this.scene.start("Level", { levelKey: "level3" });
-  		this.scene.stop();            // close quiz
-		};
+/* CORRECT ANSWER ------------------------------------- */
+continue = () => {
+  const lvl = this.scene.get("Level");
+
+  // mark this quiz as completed
+  window.parent.postMessage(
+    { event: "level_completed", level: lvl.currentQuiz, attempt: lvl.currentAttempt },
+    "*"
+  );
+
+  // advance to next quiz
+  const nextIdx = parseInt(lvl.currentQuiz.replace("quiz","")) + 1;
+  lvl.currentQuiz    = `quiz${nextIdx}`;
+  lvl.currentAttempt = 0;
+
+  this.scene.resume("Level");
+  this.scene.stop();
+};
+
 	/* END-USER-CODE */
 }
 
