@@ -93,25 +93,37 @@ class quiz1 extends Phaser.Scene {
 
 	create() { this.editorCreate(); }
 
-/* user picked a wrong answer ----------*/
+/* WRONG ANSWER --------------------------------------- */
 lose = () => {
   const lvl = this.scene.get("Level");
   lvl.currentAttempt += 1;
 
   window.parent.postMessage(
-    { event: "retry", level: lvl.levelKey, attempt:  lvl.currentAttempt },
+    { event: "retry", level: lvl.currentQuiz, attempt: lvl.currentAttempt },
     "*"
   );
 
-  /* restart the SAME level */
+  // restart the whole game scene, same quiz target
   this.scene.stop("Level");
-  this.scene.start("Level", { levelKey: lvl.levelKey });
-  this.scene.stop();      // close quiz overlay
+  this.scene.start("Level");   // currentQuiz & attempt stay in Level singleton
+  this.scene.stop();
 };
 
-/* user picked the correct answer ------*/
+/* CORRECT ANSWER ------------------------------------- */
 continue = () => {
-  /* ✅ just close the quiz and resume current level */
+  const lvl = this.scene.get("Level");
+
+  // mark this quiz as completed
+  window.parent.postMessage(
+    { event: "level_completed", level: lvl.currentQuiz, attempt: lvl.currentAttempt },
+    "*"
+  );
+
+  // advance to next quiz
+  const nextIdx = parseInt(lvl.currentQuiz.replace("quiz","")) + 1;
+  lvl.currentQuiz    = `quiz${nextIdx}`;
+  lvl.currentAttempt = 0;
+
   this.scene.resume("Level");
   this.scene.stop();
 };
